@@ -1,0 +1,53 @@
+.new-review-page {
+  height: 100vh;
+  width: 100%;
+  min-width: 700px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.pc-spec-form-box {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 70%;
+  margin: 0 auto 100px;
+  padding: 40px;
+  text-align: left;
+  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+}
+
+.spec-form {
+  padding: 20px;
+  border-color: #2a3b46;
+  border-top: 2px solid;
+}
+
+.new-review-title {
+  color: #2a3b46;
+  margin-left: 10px;
+}
+.form-field {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+.summit-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #2a3b46;
+  width: 200px;
+  margin-top: 10px;
+  margin-right: 20px;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  border: 2px #2a3b46;
+  border-radius: 2px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  display: inline-block;
+}
+.post-actions {
+  text-align: right;
+}
