@@ -9,6 +9,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender%><br/>
+    <%= f.select(:gender, ['male','female'])%>
+  </div>
+
+  <div class="field">
+    <%= f.label :dob, 'Date of birth'%><br/>
+    <%= f.text_field :dob, data:{provide: 'datepicker'} %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -24,6 +39,16 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  or 
+  <div class="fb-login-button" data-max-rows="2" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
 <% end %>
 
 <%= render "users/shared/links" %>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1128353480545108";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
