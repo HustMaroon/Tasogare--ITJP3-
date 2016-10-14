@@ -23,10 +23,14 @@
       <div class="dropdown" style="float: right;">
         <button class="dropbtn">メニュー▼</button> 
         <div class="dropdown-content">
-          <a href="#">ログイン</a>
+          <% if current_user.nil? %>
+            <%= link_to "ログイン",new_user_session_path%>
+          <% else%>
+            <%= link_to "ログアウト", destroy_user_session_path, method: 'delete'%>
+          <%end%>
           <a href="#">ヘルプ</a>
         </div>
       </div>
-    </div>
+    </div>s
   </div>
 </header>
