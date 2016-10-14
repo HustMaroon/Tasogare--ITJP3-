@@ -1,47 +1,51 @@
-<h2>Sign up</h2>
+<!-- <h2>Sign up</h2> -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="login-page">
+  <div class="login-form-box">
+    <%= form_for(resource, as: resource_name, :html => {:class => 'login-form'}, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, :class => "login-field form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, :class => "login-field form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :gender%><br/>
+        <%= f.select(:gender, ['Male','Female', "Gay", "Les"], {}, {:class => "form-control"})%>
+      </div>
+
+      <div class="field">
+        <%= f.label :dob, 'Date of birth'%><br/>
+        <%= f.text_field :dob, data:{provide: 'datepicker'}, :class => "login-field form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => "login-field form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "login-field form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", :class => "login-button" %>
+      </div>
+      <div class="fb-login-button" data-max-rows="2" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+    <% end %>
+
   </div>
-
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :gender%><br/>
-    <%= f.select(:gender, ['male','female'])%>
-  </div>
-
-  <div class="field">
-    <%= f.label :dob, 'Date of birth'%><br/>
-    <%= f.text_field :dob, data:{provide: 'datepicker'} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-  or 
-  <div class="fb-login-button" data-max-rows="2" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
-<% end %>
+</div>
 
 <%= render "users/shared/links" %>
 <div id="fb-root"></div>
