@@ -49,6 +49,9 @@
 .login-button:hover,.login-button:active,.login-button:focus {
   background: #3f4e58;
 }
+.fb-root {
+  margin-top: 10px;
+}
 body {
   /*height: 100%;*/
   font-family: "Roboto", sans-serif;
