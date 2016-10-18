@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
 	def update
     # authorize! :update, @user
     respond_to do |format|
@@ -36,6 +35,10 @@ class UsersController < ApplicationController
       format.html { redirect_to root_url }
       format.json { head :no_content }
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
   
   private

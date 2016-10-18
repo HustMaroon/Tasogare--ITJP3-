@@ -1,0 +1,33 @@
+<%= form_for Item.new do |f| %>
+	<%=f.label :name %>
+	<%=f.text_field :name %>
+
+	<%= f.label :brand %>
+	<%= f.text_field :model %>
+
+	<%= f.label :cd %>
+	<%= f.select :cd, ["yes", "no"]%>
+
+	<%= f.label :RAM %>
+	<%= f.text_field :RAM %>
+
+	<%= f.label :VGA %>
+	<%= f.text_field :VGA %>
+
+	<%= f.label :HDD %>
+	<%= f.text_field :price %>
+
+	<%= f.label :screen %>
+	<%= f.text_field :screen %>
+
+	<%= f.label :OS %>
+	<%= f.text_field :OS %>
+
+	<%= f.label :PIN %>
+	<%= f.text_field :PIN %>
+
+	<%= f.label :detail %>
+	<%= f.text_field :detail %>
+
+	<%= f.submit 'Submit' %>
+<%end%>
