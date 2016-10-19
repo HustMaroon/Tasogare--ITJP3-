@@ -1,6 +1,0 @@
-<td>
-	<%=form_for(item,url: admin_items_approve_path, method: :post, remote: true) do |f|%>
-		<%=f.hidden_field :id, value: item.id%>
-		<%=f.submit 'approve',class:'btn btn-primary'%>
-	<%end%>
-</td>

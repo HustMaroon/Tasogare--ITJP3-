@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
 	include ApplicationHelper
 	before_action :admin_user
 
@@ -11,9 +11,8 @@ class AdminController < ApplicationController
 	end
 
 	def approve_item
-		byebug
-		item = Items.find(params[:id])
-		item.update_attributes(approved: true)
+		@item = Item.find(params[:item][:id])
+		@item.update_attributes(approved: true)
 		respond_to do |format|
 			format.html{redirect_to :back}
 			format.js
@@ -21,8 +20,8 @@ class AdminController < ApplicationController
 	end
 
 	def unapprove_item
-		item = Items.find(params[:id])
-		item.update_attributes(approved: false)
+		@item = Item.find(params[:item][:id])
+		@item.update_attributes(approved: false)
 		respond_to do |format|
 			format.html{redirect_to :back}
 			format.js

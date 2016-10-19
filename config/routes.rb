@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items
   resources :users
-  get 'admin/users' => 'admin#users_index'
-  get 'admin/items' => 'admin#items_index'
-  post 'admin/items/approve' => 'admin#approve_item'
-  post 'admin/items/unapprove' => 'admin#unapprove_item'
+  get 'admins/users' => 'admins#users_index'
+  get 'admins/items' => 'admins#items_index'
+  post 'admins/item/approve' => 'admins#approve_item'
+  post 'admins/item/unapprove' => 'admins#unapprove_item'
 
 end
 	
