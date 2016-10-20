@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015175816) do
+ActiveRecord::Schema.define(version: 20161020130326) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -25,10 +25,15 @@ ActiveRecord::Schema.define(version: 20161015175816) do
     t.string   "model"
     t.string   "PIN"
     t.string   "detail"
-    t.boolean  "approved",   default: false
+    t.boolean  "approved",      default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.text     "pros"
+    t.text     "cons"
+    t.text     "detail_review"
+    t.float    "rate"
+    t.string   "image"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -51,6 +56,8 @@ ActiveRecord::Schema.define(version: 20161015175816) do
     t.date     "dob"
     t.string   "provider"
     t.string   "uid"
+    t.string   "address"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
