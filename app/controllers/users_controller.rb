@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
 	def update
     # authorize! :update, @user
     respond_to do |format|
@@ -31,11 +30,16 @@ class UsersController < ApplicationController
   # DELETE /users/:id.:format
   def destroy
     # authorize! :delete, @user
+    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
   
   private
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :email ] # extend with your own params
+      accessible = [ :name, :email, :gender, :address, :avatar, :dob ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end
