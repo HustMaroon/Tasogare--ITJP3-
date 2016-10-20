@@ -1,36 +1,42 @@
-<header>
-  <div class="row header-container">
-    <div class="col-md-8">
-      <div class="col-md-8">
-        <div class="row">
-          <input class="full-field search-input-form" name="keyword" placeholder="何かを入力してください">
-        </div>
-        <div class="row col-md-6">
-          <select class="full-field">
+<header class="navbar navbar-fixed-top navbar-inverse custom-nav">
+  <div class="container">
+    <%= link_to "PCMig", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <input class="form-control search-box" name="keyword" placeholder="何かを入力してください">
+        </li>
+        <li>
+          <select class="form-control search-options">
             <option value="5">☆は5以上</option>
             <option value="4">☆は4以上</option>
             <option value="3">☆は3以上</option>
             <option value="2">☆は2以上</option>
             <option value="1" selected>☆は1以上</option>
           </select>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <button class="custom-button">検索</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="dropdown" style="float: right;">
-        <button class="dropbtn">メニュー▼</button> 
-        <div class="dropdown-content">
-          <% if current_user.nil? %>
-            <%= link_to "ログイン",new_user_session_path%>
-          <% else%>
-            <%= link_to "ログアウト", destroy_user_session_path, method: 'delete'%>
-          <%end%>
-          <a href="#">ヘルプ</a>
-        </div>
-      </div>
-    </div>s
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle email-text" data-toggle="dropdown">
+              Hello, <%= current_user.email %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", "#" %></li>
+              <li><%= link_to "Settings", "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", destroy_user_session_path, method: 'delete'%>
+              </li>
+            </ul>
+          </li>
+        <% else %>          
+           <li><%= link_to "Log in", login_path %></li>   
+           <li><%= link_to "Sign up", signup_path %></li> 
+        <% end %>
+        
+      </ul>
+    </nav>
   </div>
 </header>
