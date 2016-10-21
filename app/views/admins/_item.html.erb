@@ -9,5 +9,5 @@
 			<%=render 'unapproved', item: item%>
 		<%end%>
 	</td>
-	<td><%= link_to( 'delete', item, method: 'delete', data: {confirm: 'you sure?'}) if current_user.items.inclued?(item) %></td>
+	<td><%= link_to( 'delete', item, method: 'delete', data: {confirm: 'you sure?'})%></td>
 </tr>
