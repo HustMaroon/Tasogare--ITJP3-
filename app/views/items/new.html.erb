@@ -1,0 +1,98 @@
+<%= form_for Item.new do |f| %>
+
+<div class="new-review-page">
+  <div class="pc-spec-form-box">
+
+  	<b><h3 class="new-review-title">Enter PC spec here</h3></b>
+
+  	<div class="spec-form">
+		
+		<div class="field">
+			<%=f.label :name %>
+			<%=f.text_field :name, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">			
+			<%= f.label :brand %>
+			<%= f.text_field :brand, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">			
+			<%= f.label :model %>
+			<%= f.text_field :model, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">		
+			<%= f.label :cd %>
+			<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
+		</div>
+
+		<div class="field">
+			<%= f.label :RAM %>
+			<%= f.text_field :RAM, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :VGA %>
+			<%= f.text_field :VGA, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :HDD %>
+			<%= f.text_field :HDD, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :price %>
+			<%= f.text_field :price, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :screen %>
+			<%= f.text_field :screen, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :OS %>
+			<%= f.text_field :OS, :class => "form-field form-control" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :PIN %>
+			<%= f.text_field :PIN, :class => "form-field form-control" %>
+		</div>
+	</div>
+  </div>
+
+  <div class="pc-spec-form-box">
+  	<b><h3 class="new-review-title">What do you think about it?</h3></b>
+  	<div class="spec-form">  	
+      	<input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+  	</div>
+  	<br>
+  </div>	
+
+  <div class="pc-spec-form-box">
+  	<div class="col-md-6">
+  		<%= text_area(:pros, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
+  	</div>
+  	<div class="col-md-6">
+  		<%= text_area(:cons, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
+  	</div>
+  </div>	
+
+  <div class="pc-spec-form-box">
+
+  	<b><h3 class="new-review-title">Review content</h3></b>
+
+  	<%= text_area(:details, :details, cols: 40, rows: 15, class: 'review-content') %>
+	<div class="post-actions">
+    	<%= f.submit "Post", :class => "summit-button" %>
+  	</div>
+  </div>	
+
+
+</div>
+
+<%end%>
+

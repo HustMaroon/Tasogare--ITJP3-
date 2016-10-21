@@ -1,0 +1,25 @@
+
+
+<div class="login-page">
+  <div class="login-form-box">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, :class => "login-field form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => "login-field form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "log in", :class => "login-button" %>
+      </div>
+    <% end %>
+
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  </div>
+</div>
+
+<!--<%= render "users/shared/links" %>-->

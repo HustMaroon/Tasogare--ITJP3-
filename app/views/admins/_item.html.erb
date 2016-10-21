@@ -1,0 +1,13 @@
+<tr id=<%="item-#{item.id}"%>>
+	<td><%= index+1%></td>
+	<td><%= item.name%></td>
+	<td><%= link_to item.user.name, item.user%></td>
+	<td id="approbation">
+		<%if item.approved?%>
+			<%=render 'approved', item: item%>
+		<%else%>
+			<%=render 'unapproved', item: item%>
+		<%end%>
+	</td>
+	<td><%= link_to( 'delete', item, method: 'delete', data: {confirm: 'you sure?'})%></td>
+</tr>

@@ -1,0 +1,39 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.custom-nav {
+	background: #2a3b46 !important;
+}
+
+.email-text {
+	color: #fff !important;
+}
+
+.search-box {
+	border-radius: 8px !important;
+	min-width: 350px;
+	margin-top: 8px;
+	margin-left: 70px;
+	padding-right: 80px !important;
+}
+
+.search-options {	
+	border-radius: 0 8px 8px 0 !important;
+	margin-top: 8px;
+	max-width: 150px;
+}

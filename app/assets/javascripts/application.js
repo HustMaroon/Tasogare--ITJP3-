@@ -10,7 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require star-rating
 //= require_tree .
+
+//= require jquery
+//= require bootstrap
+//= require bootstrap-datepicker
+
+
+
+$('.dropdown-toggle').dropdown()  
