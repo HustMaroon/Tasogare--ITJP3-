@@ -1,10 +1,11 @@
+<%= form_for Item.new do |f| %>
 
 <div class="new-review-page">
   <div class="pc-spec-form-box">
 
   	<b><h3 class="new-review-title">Enter PC spec here</h3></b>
 
-  	<%= form_for Item.new, :html => {class: 'spec-form'} do |f| %>
+  	<div class="spec-form">
 		
 		<div class="field">
 			<%=f.label :name %>
@@ -60,11 +61,38 @@
 			<%= f.label :PIN %>
 			<%= f.text_field :PIN, :class => "form-field form-control" %>
 		</div>
-
-		<div class="post-actions">
-        	<%= f.submit "Post", :class => "summit-button" %>
-      	</div>
-	<%end%>
+	</div>
   </div>
+
+  <div class="pc-spec-form-box">
+  	<b><h3 class="new-review-title">What do you think about it?</h3></b>
+  	<div class="spec-form">  	
+      	<input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+  	</div>
+  	<br>
+  </div>	
+
+  <div class="pc-spec-form-box">
+  	<div class="col-md-6">
+  		<%= text_area(:pros, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
+  	</div>
+  	<div class="col-md-6">
+  		<%= text_area(:cons, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
+  	</div>
+  </div>	
+
+  <div class="pc-spec-form-box">
+
+  	<b><h3 class="new-review-title">Review content</h3></b>
+
+  	<%= text_area(:details, :details, cols: 40, rows: 15, class: 'review-content') %>
+	<div class="post-actions">
+    	<%= f.submit "Post", :class => "summit-button" %>
+  	</div>
+  </div>	
+
+
 </div>
+
+<%end%>
 

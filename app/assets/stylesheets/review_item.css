@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100%;
   min-width: 700px;
-  padding: 8% 0 0;
+  padding: 0;
   margin: auto;
 }
 .pc-spec-form-box {
@@ -10,8 +10,8 @@
   z-index: 1;
   background: #FFFFFF;
   width: 70%;
-  margin: 0 auto 100px;
-  padding: 40px;
+  margin: 0 auto 0;
+  padding: 40px 40px 0 40px;
   text-align: left;
   /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
 }
