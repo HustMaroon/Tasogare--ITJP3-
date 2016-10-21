@@ -12,6 +12,7 @@
 //
 //= require jquery_ujs
 //= require turbolinks
+//= require star-rating
 //= require_tree .
 
 //= require jquery
