@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'admins/items' => 'admins#items_index'
   post 'admins/item/approve' => 'admins#approve_item'
   post 'admins/item/unapprove' => 'admins#unapprove_item'
+  post 'rate' => 'items#rate'
 
 end
 	

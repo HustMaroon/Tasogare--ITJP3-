@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-master_klass = [User, Item]
+master_klass = [User, Item, Rating]
 
 master_klass.each do |klass|
   klass.destroy_all
@@ -34,3 +34,14 @@ User.general_users.each do |user|
   end
   puts "Created #{number_of_items} items for user #{user.email}"
 end
+
+MAX_NUMBER_OF_RATINGS_EACH_ITEM = 30
+Item.all.each do |item|
+	number_of_ratings = rand(MAX_NUMBER_OF_RATINGS_EACH_ITEM + 1)
+	user = User.all[rand(50)]
+	rate = 0.5*rand(10)
+	item.ratings.create!(user: user, rate: rate )
+	puts "created a random rate #{rate} for item with id #{item.id} and user #{user.id}" 
+end
+
+

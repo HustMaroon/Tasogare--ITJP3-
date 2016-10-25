@@ -1,1 +1,15 @@
 <%= @item.name%>
+ratings: <%=@ratings %>
+avg_rate: <%= @rate_point%>
+
+<%=form_tag(rate_path, method: 'post', multipart: true) do %>
+	 <div class="pc-spec-form-box">
+  	<b><h3 class="new-review-title">What do you think about it?</h3></b>
+  	<div class="spec-form">  	
+      	<input id="input-4" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true" value="<%=@rated_value%>">
+  	</div>
+  	<br>
+  </div>
+  <%= hidden_field_tag 'item', @item.id%>
+  <%=submit_tag 'rate', class: 'btn btn-primary'%>	
+<%end%>

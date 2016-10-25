@@ -61,34 +61,22 @@
 			<%= f.label :PIN %>
 			<%= f.text_field :PIN, :class => "form-field form-control" %>
 		</div>
-	</div>
+
+		<div class="review-content">
+			<%=f.label :detail_review%>
+			<%=f.cktext_area :detail_review%>
   </div>
 
   <div class="pc-spec-form-box">
   	<b><h3 class="new-review-title">What do you think about it?</h3></b>
   	<div class="spec-form">  	
-      	<input id="input-4" name="input-4" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+      	<input id="input-4" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
   	</div>
   	<br>
   </div>	
 
-  <div class="pc-spec-form-box">
-  	<div class="col-md-6">
-  		<%= text_area(:pros, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
-  	</div>
-  	<div class="col-md-6">
-  		<%= text_area(:cons, :pros, cols: 30, rows: 10, class: 'pros-cons') %>
-  	</div>
-  </div>	
-
-  <div class="pc-spec-form-box">
-
-  	<b><h3 class="new-review-title">Review content</h3></b>
-
-  	<%= text_area(:details, :details, cols: 40, rows: 15, class: 'review-content') %>
 	<div class="post-actions">
     	<%= f.submit "Post", :class => "summit-button" %>
-  	</div>
   </div>	
 
 

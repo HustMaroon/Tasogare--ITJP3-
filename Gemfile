@@ -34,6 +34,7 @@ gem 'devise'
 gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'ckeditor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
