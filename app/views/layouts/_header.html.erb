@@ -18,11 +18,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to "Post a review", new_item_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle email-text" data-toggle="dropdown">
               Hello, <%= current_user.email %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li><%= link_to "My reviews", items_path %></li>
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
               <li class="divider"></li>

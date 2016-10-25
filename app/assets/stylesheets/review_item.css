@@ -5,15 +5,14 @@
   padding: 0;
   margin: auto;
 }
-.pc-spec-form-box {
+.review-form-box {  
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  width: 70%;
+  width: 80%;
   margin: 0 auto 0;
   padding: 40px 40px 0 40px;
   text-align: left;
-  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
 }
 
 .spec-form {
@@ -37,7 +36,7 @@
   background: #2a3b46;
   width: 200px;
   margin-top: 10px;
-  margin-right: 20px;
+  margin-right: 100px;
   padding: 10px;
   color: #FFFFFF;
   font-size: 14px;
@@ -48,6 +47,17 @@
   cursor: pointer;
   display: inline-block;
 }
+.detail-content {
+  text-align: center;
+}
 .post-actions {
   text-align: right;
+}
+
+
+
+/* Showing review */
+.product-images {
+  width: 500px;
+  height: 500px;
 }
