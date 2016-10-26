@@ -71,8 +71,8 @@
 
   <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">What do you think about it?</h3></b>
-  	<div class="spec-form">  	
-  			<%= f.text_field :rate, class: "rating rating-loading", "data-show-clear": "false", "data-show-caption": true %>
+  	<div class="spec-form row">  	
+  			<%= f.text_field :rate, class: "rating rating-loading", "data-show-caption": true %>
   	</div>
   	<br>
   </div>	
@@ -94,15 +94,15 @@
   <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">Detailed review</h3></b>
 
-  	<div class="spec-form detail-content">
-	  	<%= f.text_area :detail_review, size: "110x12", class: 'review-content' %>
+  	<div class="detail-content">
+	  	<div class="review-content">
+				<%=f.cktext_area :detail_review%>
+			</div>
 			<div class="post-actions">
 	    	<%= f.submit "Post", :class => "summit-button" %>
 	  	</div>
 	  </div>
   </div>	
-
-
 </div>
 
 <%end%>

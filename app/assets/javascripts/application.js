@@ -16,8 +16,7 @@
 //= require_tree .
 //= require bootstrap
 //= require bootstrap-datepicker
-//= require star-rating
-
+//= require ckeditor/init
 
 
 $('.dropdown-toggle').dropdown()  

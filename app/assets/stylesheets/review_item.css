@@ -36,7 +36,8 @@
   background: #2a3b46;
   width: 200px;
   margin-top: 10px;
-  margin-right: 100px;
+  margin-right: 50px;
+  margin-bottom: 100px;
   padding: 10px;
   color: #FFFFFF;
   font-size: 14px;
@@ -49,6 +50,9 @@
 }
 .detail-content {
   text-align: center;
+  padding-top: 20px;
+  border-color: #2a3b46;
+  border-top: 2px solid;
 }
 .post-actions {
   text-align: right;
