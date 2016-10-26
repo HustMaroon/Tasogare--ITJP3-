@@ -1,24 +1,43 @@
-<%=image_tag @user.avatar, width: '500', height: '500'%>
-<!-- <h2>Sign up</h2> -->
-
-<div class="login-page">
-  <div class="login-form-box">
-
-      <div class="field">
-      	Email: <%=@user.email%>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Profile</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center">
+        <% unless @user.avatar.url.nil? %>
+          <%= image_tag @user.avatar.url, class: "image-profile" %>
+        <% else %>
+          <%= image_tag "profile.jpg", class: "image-profile" %>
+        <% end %>
+        <div class="clearfix"></div>
       </div>
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information">
+          <tbody>
+          <tr>
+            <td>Name</td>
+            <td><%= @user.name%></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><a href="mailto:<%= @user.email%>"><%= @user.email%></a></td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td>19/12/1994</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td><%= @user.gender %></td>
+          </tr>
 
-      <div class="field">
-      	Name: <%=@user.name%>
+          </tbody>
+        </table>
       </div>
-
-      <div class="field">
-      	Gender: <%=@user.gender%>
-      </div>
-
-      <div class="field">
-      	Date of birth: <%=@user.dob%>
-      </div>
-
+    </div>
+  </div>
+  <div class="panel-footer">
+      <a href="<%= edit_user_registration_path(@user.id)%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
   </div>
 </div>
