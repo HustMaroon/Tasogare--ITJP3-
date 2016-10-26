@@ -9,5 +9,9 @@ class Item < ApplicationRecord
 		rater += 1
 		self.update_attributes(rate: rate, rater: rater)
 	end
+
+	def self.get_top_newest(number)
+		return Item.order('created_at DESC').limit(number)
+	end
 end
  
