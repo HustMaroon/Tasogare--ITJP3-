@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+//= require bootstrap-datepicker
+//= require ckeditor/init
+
+
+$('.dropdown-toggle').dropdown()  
