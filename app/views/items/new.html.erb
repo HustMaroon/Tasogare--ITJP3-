@@ -1,85 +1,108 @@
 <%= form_for Item.new do |f| %>
 
 <div class="new-review-page">
-  <div class="pc-spec-form-box">
 
-  	<b><h3 class="new-review-title">Enter PC spec here</h3></b>
+  <div class="review-form-box container-fluid">
+  	<b><h3 class="new-review-title">Device specifications</h3></b>
 
-  	<div class="spec-form">
+  	<div class="spec-form row">
+  		<div class="col-md-6">
+
+				<div class="field">
+					<%=f.label :name %>
+					<%=f.text_field :name, :class => "form-field form-control" %>
+				</div>
+
+				<div class="field">			
+					<%= f.label :brand %>
+					<%= f.text_field :brand, :class => "form-field form-control" %>
+				</div>
+
+				<div class="field">			
+					<%= f.label :model %>
+					<%= f.text_field :model, :class => "form-field form-control" %>
+				</div>
+
+				<!-- <div class="field">		
+					<%= f.label :cd %>
+					<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
+				</div> -->
+
+				<div class="field">
+					<%= f.label :RAM %>
+					<%= f.text_field :RAM, :class => "form-field form-control" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :VGA %>
+					<%= f.text_field :VGA, :class => "form-field form-control" %>
+				</div>
+  		</div>
 		
-		<div class="field">
-			<%=f.label :name %>
-			<%=f.text_field :name, :class => "form-field form-control" %>
-		</div>
+			<div class="col-md-6">
+				<div class="field">
+					<%= f.label :HDD %>
+					<%= f.text_field :HDD, :class => "form-field form-control" %>
+				</div>
 
-		<div class="field">			
-			<%= f.label :brand %>
-			<%= f.text_field :brand, :class => "form-field form-control" %>
-		</div>
+				<div class="field">
+					<%= f.label :price %>
+					<%= f.text_field :price, :class => "form-field form-control" %>
+				</div>
 
-		<div class="field">			
-			<%= f.label :model %>
-			<%= f.text_field :model, :class => "form-field form-control" %>
-		</div>
+				<div class="field">
+					<%= f.label :screen %>
+					<%= f.text_field :screen, :class => "form-field form-control" %>
+				</div>
 
-		<div class="field">		
-			<%= f.label :cd %>
-			<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
-		</div>
+				<div class="field">
+					<%= f.label :OS %>
+					<%= f.text_field :OS, :class => "form-field form-control" %>
+				</div>
 
-		<div class="field">
-			<%= f.label :RAM %>
-			<%= f.text_field :RAM, :class => "form-field form-control" %>
+				<div class="field">
+					<%= f.label :PIN %>
+					<%= f.text_field :PIN, :class => "form-field form-control" %>
+				</div>
+			</div>
+		
 		</div>
-
-		<div class="field">
-			<%= f.label :VGA %>
-			<%= f.text_field :VGA, :class => "form-field form-control" %>
-		</div>
-
-		<div class="field">
-			<%= f.label :HDD %>
-			<%= f.text_field :HDD, :class => "form-field form-control" %>
-		</div>
-
-		<div class="field">
-			<%= f.label :price %>
-			<%= f.text_field :price, :class => "form-field form-control" %>
-		</div>
-
-		<div class="field">
-			<%= f.label :screen %>
-			<%= f.text_field :screen, :class => "form-field form-control" %>
-		</div>
-
-		<div class="field">
-			<%= f.label :OS %>
-			<%= f.text_field :OS, :class => "form-field form-control" %>
-		</div>
-
-		<div class="field">
-			<%= f.label :PIN %>
-			<%= f.text_field :PIN, :class => "form-field form-control" %>
-		</div>
-
-		<div class="review-content">
-			<%=f.label :detail_review%>
-			<%=f.cktext_area :detail_review%>
   </div>
 
-  <div class="pc-spec-form-box">
+  <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">What do you think about it?</h3></b>
-  	<div class="spec-form">  	
-      	<input id="input-4" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+  	<div class="spec-form row">  	
+  			<%= f.text_field :rate, class: "rating rating-loading", "data-show-caption": true, "showClear": false %>
   	</div>
   	<br>
   </div>	
 
-	<div class="post-actions">
-    	<%= f.submit "Post", :class => "summit-button" %>
+  <div class="review-form-box container-fluid">  
+  	<b><h3 class="new-review-title">Some thoughts</h3></b>
+  	<div class="spec-form row">
+  		<div class="col-md-6">
+  			<b><h3 class="new-review-title">Pros</h3></b>
+  			<%= f.text_area :pros, size: "50x7", class: 'pros-cons' %>
+	  	</div>
+	  	<div class="col-md-6">
+	  		<b><h3 class="new-review-title">Cons</h3></b>
+  			<%= f.text_area :cons, size: "50x7", class: 'pros-cons' %>
+	  	</div>
+  	</div>
   </div>	
 
+  <div class="review-form-box container-fluid">
+  	<b><h3 class="new-review-title">Detailed review</h3></b>
 
+  	<div class="detail-content">
+	  	<div class="review-content">
+				<%=f.cktext_area :detail_review%>
+			</div>
+			<div class="post-actions">
+	    	<%= f.submit "Post", :class => "summit-button" %>
+	  	</div>
+	  </div>
+  </div>	
 </div>
 
 <%end%>
