@@ -1,52 +1,64 @@
 
 <div class="article-section container">
 
-	<h1><%= @item.name %></h1>
+	<h1 class="article-title"><b><%= @item.name %></b></h1>
 
 	<div class="row">
 		<div class="col-md-4 product-images">
-			<img class="img-responsive" src="http://placehold.it/400x300" alt="">
+			<img class="img-responsive" style="max-width:100%; max-height:100%" src="http://placehold.it/500x500" alt="">
 		</div>
 		<div class="col-md-8">
-			<input id="star-input" class="rating rating-loading" value="<%=@ratings %>" data-size="sm" readonly="true">
-			<p class="comment-count">12 comment(s)</p>
-			<p class="spec-text">Specifications</p>
+			<div class="comment-count">12 comment(s)</div>
+			<br>
+			<div style="padding-top: 8px">
+				<input id="rating1" value="<%=@rate_point%>">
+			</div>
+			<!-- <input id="star-input" class="rating" value="<%=@rated_value%>" data-size="xs" disabled="true" showClear="false"> -->
+			<p class="spec-text">SPECIFICATIONS</p>
 			<ul>
-				<li>Brand: <%= @item.brand %></li>
-				<li>Model: <%= @item.model %></li>
-				<li>RAM: <%= @item.RAM %></li>
-				<li>VGA: <%= @item.VGA %></li>
-				<li>Disk: <%= @item.HDD %></li>
-				<li>Screen: <%= @item.screen %></li>
-				<li>OS: <%= @item.OS %></li>
-				<li>Battery: <%= @item.PIN %></li>
-				<li>Price: <%= @item.price %>$</li>
+				<li><b class="spec-type">Brand:</b> <%= @item.brand %></li>
+				<li><b class="spec-type">Model:</b> <%= @item.model %></li>
+				<li><b class="spec-type">RAM:</b> <%= @item.RAM %></li>
+				<li><b class="spec-type">VGA:</b> <%= @item.VGA %></li>
+				<li><b class="spec-type">Disk:</b> <%= @item.HDD %></li>
+				<li><b class="spec-type">Screen:</b> <%= @item.screen %></li>
+				<li><b class="spec-type">OS:</b> <%= @item.OS %></li>
+				<li><b class="spec-type">Battery:</b> <%= @item.PIN %></li>
+				<li><b class="spec-type">Price:</b> <%= @item.price %>$</li>
 			</ul>
 		</div>
 	</div>
 
-	<div class="row">
+	<br>
+
+	<div class="row overview-section">
 		<div class="col-md-4">
-			<h3>Pros</h3>
-			<p><%= @item.pros %></p>
+			<h4 class="h4-title">Pros</h4>
+			<p>Lorem ipsum dolor sit amet<br>Lorem ipsum dolor sit amet</p>
 		</div>
 		<div class="col-md-4">
-			<h3>Cons</h3>
-			<p><%= @item.cons %></p>
+			<h4 class="h4-title">Cons</h4>
+			<p>Lorem ipsum dolor sit amet</p>
 		</div>
 	</div>
 
 	<div class="detailed-review-body">
-			<p><%= @item.detail_review %></p>
+			<%=raw @item.detail_review %>
+	</div>
+
+	<h3 class="comment-title">Comments</h3>
+	<div class="comment-section">
+		
 	</div>
 </div>
 
 <!-- ratings: <%=@ratings %>
 avg_rate: <%= @rate_point%> -->
 
+<!-- <div>
 <%=form_tag(rate_path, method: 'post', multipart: true) do %>
 	 <div class="pc-spec-form-box">
-  	<b><h3 class="new-review-title">What do you think about it?</h3></b>
+  	<b><h3 class="new-review-title">How do you rate this device?</h3></b>
   	<div class="spec-form">  	
       	<input id="input-4" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true" value="<%=@rated_value%>">
   	</div>
@@ -55,3 +67,9 @@ avg_rate: <%= @rate_point%> -->
   <%= hidden_field_tag 'item', @item.id%>
   <%=submit_tag 'rate', class: 'btn btn-primary'%>	
 <%end%>
+
+</div> -->
+
+<script type="text/javascript">
+	$("#rating1").rating({min:1, max:5, size:'xs', showClear:false, disabled:true});
+</script>

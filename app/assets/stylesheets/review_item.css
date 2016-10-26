@@ -62,6 +62,57 @@
 
 /* Showing review */
 .product-images {
-  width: 500px;
-  height: 500px;
+  max-width: 500px;
+  max-height: 500px;
+  text-align: center;
+}
+.article-section {
+  width: 90% !important;
+  margin: 0 auto 0;
+}
+.comment-count {
+  background: #E20309;
+  text-transform: uppercase;
+  border-bottom: 2px solid #A9050B;
+  font-size: 18px;
+  padding: 4px;
+  color: #FFFFFF;
+  display: inline;
+  margin-bottom: 8px;
+}
+.comment-count:hover {
+    background: #ce0308;
+}
+.article-title {
+  margin-bottom: 5px;
+}
+.h4-title {
+  color: #E20309;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+}
+.overview-section {
+  border-top: 4px solid #CBCAC9;
+  border-bottom: 4px solid #CBCAC9;
+  margin-bottom: 10px;
+}
+.detailed-review-body {
+  margin-bottom: 100px;
+}
+.spec-text {
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.comment-title {
+  color: #000000;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+}
+.comment-section {
+  border-top: 4px solid #CBCAC9;
+  margin-bottom: 100px;
 }
