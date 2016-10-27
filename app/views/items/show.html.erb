@@ -1,6 +1,7 @@
 <%= @item.name%>
 ratings: <%=@ratings %>
 avg_rate: <%= @rate_point%>
+<%=image_tag @item.image %>
 
 <%=form_tag(rate_path, method: 'post', multipart: true) do %>
 	 <div class="pc-spec-form-box">
@@ -13,3 +14,9 @@ avg_rate: <%= @rate_point%>
   <%= hidden_field_tag 'item', @item.id%>
   <%=submit_tag 'rate', class: 'btn btn-primary'%>	
 <%end%>
+<div id="comments-list">
+	<%= @item.comments.each do |comment| %>
+		<%= render 'comments/comment', comment: comment%>
+	<%end%>
+</div>
+	<%= render 'comments/comment_form', item: @item%>
