@@ -9,19 +9,6 @@ class ItemsController < ApplicationController
 	def new
 	end
 
-	def update
-    # authorize! :update, @item
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Your review was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 	def create
 		item = current_user.items.build(item_params)
 		if item.save
@@ -36,6 +23,18 @@ class ItemsController < ApplicationController
 
 	def edit
 		@item = Item.find(params[:id])
+	end
+
+	def update
+		item = Item.find(params[:id])
+		item.update_attributes(item_params)
+		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)
+		if rating.nil?
+			item.ratings.create!(user: current_user, rate: params[:rate])
+		else
+			rating.update_attributes(rate: params[:rate])
+		end
+		redirect_to item
 	end
 
 	def show
