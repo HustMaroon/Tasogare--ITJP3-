@@ -69,12 +69,13 @@ class ItemsController < ApplicationController
 
 private
 	def item_params
-		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, :price, :brand, :screen, :OS, :model, :PIN, :detail_review)
+		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, 
+			:price, :brand, :screen, :OS, :model, :PIN, :detail_review, :image)
 	end
 	def sum(ratings)
 		sum = 0
 		ratings.each do |rating|
-			sum+= rating.rate 
+			sum += rating.rate.nil? ? 0 : rating.rate
 		end
 		sum
 	end
