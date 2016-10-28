@@ -5,15 +5,14 @@
   padding: 0;
   margin: auto;
 }
-.pc-spec-form-box {
+.review-form-box {  
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  width: 70%;
+  width: 80%;
   margin: 0 auto 0;
   padding: 40px 40px 0 40px;
   text-align: left;
-  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
 }
 
 .spec-form {
@@ -37,7 +36,8 @@
   background: #2a3b46;
   width: 200px;
   margin-top: 10px;
-  margin-right: 20px;
+  margin-right: 50px;
+  margin-bottom: 100px;
   padding: 10px;
   color: #FFFFFF;
   font-size: 14px;
@@ -48,6 +48,71 @@
   cursor: pointer;
   display: inline-block;
 }
+.detail-content {
+  text-align: center;
+  padding-top: 20px;
+  border-color: #2a3b46;
+  border-top: 2px solid;
+}
 .post-actions {
   text-align: right;
+}
+
+
+
+/* Showing review */
+.product-images {
+  max-width: 500px;
+  max-height: 500px;
+  text-align: center;
+}
+.article-section {
+  width: 90% !important;
+  margin: 0 auto 0;
+}
+.comment-count {
+  background: #E20309;
+  text-transform: uppercase;
+  border-bottom: 2px solid #A9050B;
+  font-size: 18px;
+  padding: 4px;
+  color: #FFFFFF;
+  display: inline;
+  margin-bottom: 8px;
+}
+.comment-count:hover {
+    background: #ce0308;
+}
+.article-title {
+  margin-bottom: 5px;
+}
+.h4-title {
+  color: #E20309;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+}
+.overview-section {
+  border-top: 4px solid #CBCAC9;
+  border-bottom: 4px solid #CBCAC9;
+  margin-bottom: 10px;
+}
+.detailed-review-body {
+  margin-bottom: 100px;
+}
+.spec-text {
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.comment-title {
+  color: #000000;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+}
+.comment-section {
+  border-top: 4px solid #CBCAC9;
+  margin-bottom: 100px;
 }
