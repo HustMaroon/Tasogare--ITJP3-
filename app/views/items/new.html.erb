@@ -1,7 +1,6 @@
 <%= form_for Item.new do |f| %>
 
 <div class="new-review-page">
-
   <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">Device specifications</h3></b>
 
@@ -23,11 +22,6 @@
 					<%= f.text_field :model, :class => "form-field form-control" %>
 				</div>
 
-				<!-- <div class="field">		
-					<%= f.label :cd %>
-					<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
-				</div> -->
-
 				<div class="field">
 					<%= f.label :RAM %>
 					<%= f.text_field :RAM, :class => "form-field form-control" %>
@@ -36,6 +30,11 @@
 				<div class="field">
 					<%= f.label :VGA %>
 					<%= f.text_field :VGA, :class => "form-field form-control" %>
+				</div>
+
+				<div class="field">		
+					<%= f.label :cd %>
+					<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
 				</div>
   		</div>
 		
@@ -64,15 +63,19 @@
 					<%= f.label :PIN %>
 					<%= f.text_field :PIN, :class => "form-field form-control" %>
 				</div>
+
+	      <div class="field">
+	        <%= f.label :image%><br/>
+	        <%= f.file_field :image%>
+	      </div>
 			</div>
-		
 		</div>
   </div>
 
   <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">What do you think about it?</h3></b>
   	<div class="spec-form row">  	
-  			<%= f.text_field :rate, class: "rating rating-loading", "data-show-caption": true, "showClear": false %>
+  			<input id="input-4" name="rate">
   	</div>
   	<br>
   </div>	
@@ -107,3 +110,6 @@
 
 <%end%>
 
+<script type="text/javascript">
+	$("#input-4").rating({min:1, max:5, size:'md', showClear:false});
+</script>

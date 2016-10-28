@@ -1,11 +1,22 @@
 
 <div class="article-section container">
 
+	<% if @item.user.id == current_user.id %>
+		<div style="text-align:right">
+			<%= link_to edit_item_path(@item.id), class: "btn btn-primary" do %>
+		    <i class="glyphicon glyphicon-edit"> Edit</i>
+			<% end %>
+		</div>
+	<% end %>
 	<h1 class="article-title"><b><%= @item.name %></b></h1>
 
 	<div class="row">
 		<div class="col-md-4 product-images">
-			<img class="img-responsive" style="max-width:100%; max-height:100%" src="http://placehold.it/500x500" alt="">
+			<% if @item.image.nil? %>
+				<img class="img-responsive" style="max-width:100%; max-height:100%" src="http://placehold.it/500x500" alt="">
+			<% else %>
+				<img class="img-responsive" style="max-width:100%; max-height:100%" src="<%= @item.image %>" alt="">
+			<% end %>
 		</div>
 		<div class="col-md-8">
 			<div class="comment-count">12 comment(s)</div>
@@ -13,7 +24,6 @@
 			<div style="padding-top: 8px">
 				<input id="rating1" value="<%=@rate_point%>">
 			</div>
-			<!-- <input id="star-input" class="rating" value="<%=@rated_value%>" data-size="xs" disabled="true" showClear="false"> -->
 			<p class="spec-text">SPECIFICATIONS</p>
 			<ul>
 				<li><b class="spec-type">Brand:</b> <%= @item.brand %></li>
@@ -47,28 +57,15 @@
 	</div>
 
 	<h3 class="comment-title">Comments</h3>
-	<div class="comment-section">
-		
+	<div class="comment-section">	
+		<div id="comments-list">
+			<%= @item.comments.each do |comment| %>
+				<%= render 'comments/comment', comment: comment%>
+			<%end%>
+		</div>
+			<%= render 'comments/comment_form', item: @item%>
 	</div>
 </div>
-
-<!-- ratings: <%=@ratings %>
-avg_rate: <%= @rate_point%> -->
-
-<!-- <div>
-<%=form_tag(rate_path, method: 'post', multipart: true) do %>
-	 <div class="pc-spec-form-box">
-  	<b><h3 class="new-review-title">How do you rate this device?</h3></b>
-  	<div class="spec-form">  	
-      	<input id="input-4" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true" value="<%=@rated_value%>">
-  	</div>
-  	<br>
-  </div>
-  <%= hidden_field_tag 'item', @item.id%>
-  <%=submit_tag 'rate', class: 'btn btn-primary'%>	
-<%end%>
-
-</div> -->
 
 <script type="text/javascript">
 	$("#rating1").rating({min:1, max:5, size:'xs', showClear:false, disabled:true});

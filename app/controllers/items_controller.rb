@@ -9,6 +9,19 @@ class ItemsController < ApplicationController
 	def new
 	end
 
+	def update
+    # authorize! :update, @item
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html { redirect_to @item, notice: 'Your review was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 	def create
 		item = current_user.items.build(item_params)
 		if item.save
@@ -22,6 +35,7 @@ class ItemsController < ApplicationController
 	end
 
 	def edit
+		@item = Item.find(params[:id])
 	end
 
 	def show
@@ -55,12 +69,13 @@ class ItemsController < ApplicationController
 
 private
 	def item_params
-		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, :price, :brand, :screen, :OS, :model, :PIN, :detail_review)
+		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, :price, :brand, :screen, 
+			                           :OS, :model, :PIN, :detail_review, :pros, :cons, :image)
 	end
 	def sum(ratings)
 		sum = 0
 		ratings.each do |rating|
-			sum+= rating.rate 
+			sum += rating.rate.nil? ? 0 : rating.rate
 		end
 		sum
 	end

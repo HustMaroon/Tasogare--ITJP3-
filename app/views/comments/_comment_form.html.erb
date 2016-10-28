@@ -1,0 +1,7 @@
+<%= form_for item.comments.build  do |f| %>
+	<%= f.text_field :content, id: 'comment-field' %>
+
+	<%= f.hidden_field :item_id, value: item.id  %>
+
+	<%= f.submit 'Comment', class:'btn btn-primary' %>
+<%end%>
