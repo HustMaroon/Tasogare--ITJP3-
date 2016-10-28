@@ -14,7 +14,6 @@
         <%= f.label :email %><br/>
         <%= f.email_field :email, autofocus: true, class: "login-field form-control" %>
       </div>
-
       <div class="field">
         <%= f.label :dob, 'Date of birth'%><br/>
         <%= f.text_field :dob, data:{provide: 'datepicker'}, :class => "login-field form-control" %>
@@ -43,13 +42,13 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
-        <%= f.password_field :current_password, autocomplete: "off", class: "login-field form-control" %>
+        <%=f.label :avatar %>
+        <%=f.file_field :avatar %>
       </div>
 
       <div class="field">
-        <%=f.label :avatar %>
-        <%=f.file_field :avatar %>
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
+        <%= f.password_field :current_password, autocomplete: "off", class: "login-field form-control" %>
       </div>
 
       <%= f.hidden_field :user_id, value: @user.id %>
