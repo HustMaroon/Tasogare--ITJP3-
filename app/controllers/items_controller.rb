@@ -22,6 +22,19 @@ class ItemsController < ApplicationController
 	end
 
 	def edit
+		@item = Item.find(params[:id])
+	end
+
+	def update
+		item = Item.find(params[:id])
+		item.update_attributes(item_params)
+		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)
+		if rating.nil?
+			item.ratings.create!(user: current_user, rate: params[:rate])
+		else
+			rating.update_attributes(rate: params[:rate])
+		end
+		redirect_to item
 	end
 
 	def show
