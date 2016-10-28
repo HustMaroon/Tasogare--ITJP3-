@@ -69,8 +69,8 @@ class ItemsController < ApplicationController
 
 private
 	def item_params
-		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, 
-			:price, :brand, :screen, :OS, :model, :PIN, :detail_review, :image)
+		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, :price, :brand, :screen, 
+			                           :OS, :model, :PIN, :detail_review, :pros, :cons, :image)
 	end
 	def sum(ratings)
 		sum = 0
