@@ -4,9 +4,12 @@
     <nav>
       <ul class="nav navbar-nav navbar-left">
         <li>
-          <input class="form-control search-box" name="keyword" placeholder="何かを入力してください">
+<!--           <input class="form-control search-box" name="keyword" placeholder="何かを入力してください"> -->
+          <%= form_tag search_path, method: :get, :class => 'form-inline' do %>
+            <%= text_field_tag :search, params[:search],placeholder: "何かを入力してください", class: "form-control search-box"%>
+          <% end %>
         </li>
-        <li>
+<!--         <li>
           <select class="form-control search-options">
             <option value="5">★★★★★</option>
             <option value="4">★★★★☆</option>
@@ -14,7 +17,7 @@
             <option value="2">★★☆☆☆</option>
             <option value="1" selected>★☆☆☆☆</option>
           </select>
-        </li>
+        </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

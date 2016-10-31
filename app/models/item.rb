@@ -16,5 +16,14 @@ class Item < ApplicationRecord
 	def self.get_top_newest(number)
 		return Item.order('created_at DESC').limit(number)
 	end
+
+	def self.search(search)
+	  if search
+	    where("name LIKE ?", "%#{search}%")
+	  else
+	    Item.all
+	  end
+	end 
+
 end
  
