@@ -1,0 +1,10 @@
+<h1>Seach results</h1>
+<%if @items.empty? %>
+	<p>result not found!</p>
+<%else%>
+	<ol>
+		<%@items.each do |item| %>
+			<li><%=item.name%></li>
+		<%end%>
+	</ol>
+<%end%>

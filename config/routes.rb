@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+
   devise_for :users, controllers: { session: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items do 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :users
+  get 'search' => 'items#search'
   get 'admins/users' => 'admins#users_index'
   get 'admins/items' => 'admins#items_index'
   post 'admins/item/approve' => 'admins#approve_item'

@@ -19,7 +19,7 @@
 			<% end %>
 		</div>
 		<div class="col-md-8">
-			<div class="comment-count">12 comment(s)</div>
+			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> comment(s)</div>
 			<br>
 			<div style="padding-top: 8px">
 				<input id="rating1" value="<%=@rate_point%>">
@@ -57,13 +57,13 @@
 	</div>
 
 	<h3 class="comment-title">Comments</h3>
-	<div class="comment-section">	
+	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">	
+		<%= render 'comments/comment_form', item: @item%>
 		<div id="comments-list">
-			<%= @item.comments.each do |comment| %>
+			<% @item.comments.each do |comment| %>
 				<%= render 'comments/comment', comment: comment%>
 			<%end%>
 		</div>
-			<%= render 'comments/comment_form', item: @item%>
 	</div>
 </div>
 
