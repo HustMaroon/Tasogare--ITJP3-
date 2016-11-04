@@ -11,7 +11,7 @@
   <div class="comment-body">
       <div class="comment-heading">
           <h4 class="user"><%=link_to comment.user.name, comment.user %></h4>
-          <h5 class="time"><%=comment.updated_at%></h5>
+          <h5 class="time"><%= time_ago_in_words(comment.updated_at) %></h5>
       </div>
       <p><%=comment.content%></p>
   </div>
