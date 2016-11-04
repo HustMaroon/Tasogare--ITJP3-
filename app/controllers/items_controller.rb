@@ -26,8 +26,9 @@ class ItemsController < ApplicationController
 	end
 
 	def update
+		byebug
 		item = Item.find(params[:id])
-		item.update_attributes(item_params)
+		item.update_attributes(item_params) unless params[:commit] == "Rate"
 		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)
 		if rating.nil?
 			item.ratings.create!(user: current_user, rate: params[:rate])
@@ -40,7 +41,7 @@ class ItemsController < ApplicationController
 	def show
 		@item = Item.find(params[:id])
 		@ratings = @item.ratings.count
-		@rate_point = sum(@item.ratings)/@ratings
+		@ratings == 0 ? @rate_point = 0 : @rate_point = sum(@item.ratings)/@ratings
 		rating = Rating.find_by(user: current_user, item: @item)
 		@rated_value = rating.nil? ? 0 : rating.rate 
 	end
