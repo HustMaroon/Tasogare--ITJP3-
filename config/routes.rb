@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :users
+  get 'search' => 'items#search'
   get 'admins/users' => 'admins#users_index'
   get 'admins/items' => 'admins#items_index'
   post 'admins/item/approve' => 'admins#approve_item'

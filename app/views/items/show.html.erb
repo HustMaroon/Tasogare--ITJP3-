@@ -60,7 +60,7 @@
 	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">	
 		<%= render 'comments/comment_form', item: @item%>
 		<div id="comments-list">
-			<%= @item.comments.each do |comment| %>
+			<% @item.comments.each do |comment| %>
 				<%= render 'comments/comment', comment: comment%>
 			<%end%>
 		</div>

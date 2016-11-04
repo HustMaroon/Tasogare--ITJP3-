@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	include ApplicationHelper
-	before_action :logged_in_user, onlly: [:create]
+	before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :rate]
 
 	def index
 		@items = Item.approved_items + current_user.items
@@ -64,6 +64,10 @@ class ItemsController < ApplicationController
 			rating.update_attributes(rate: params[:rate])
 		end
 		redirect_to @item
+	end
+
+	def search
+		@items = Item.search(params[:search])
 	end
 
 private
