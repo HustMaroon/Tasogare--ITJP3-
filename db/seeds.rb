@@ -71,7 +71,7 @@ item3 = Item.create(name: "Dell Inspiron 11 3000", image: "http://www.laptopmag.
             detail_review: "The Dell Inspiron 11 3000 offers long battery life in a stylish and compact 
                             design, but the display and keyboard could be better.", 
                            approved: true, user_id: user_id)
-File.open("app/assets/images/dell-isnspiron-11-3000-2016-nw-g01.jpg") do |f|
+File.open("app/assets/images/dell-inspiron-11-3000-2016-nw-g01.jpg") do |f|
   item3.image = f
   item3.save
 end
