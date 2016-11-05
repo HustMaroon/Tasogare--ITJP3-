@@ -14,12 +14,18 @@ html {
 /* Slider
 http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
 */
-/* Slider
 /*-----------------------------------------------------------------------------------*/
-.slider_container{ width:920px; margin:auto; clear:both; background:url('shadow_top.png') no-repeat top center; padding:30px 0 0 0;}
-.flex-caption{ position: absolute; right:11px; bottom:20px;}
-.caption_title_line{ width:450px; height:75px; padding:5px 15px 10px 15px;background:url('slider_caption_bg.png') repeat;color: #303030;}
-.flex-caption h2{ color:#303030;font-size:20px; padding:5px 0 5px 0; margin:0px;font-family: 'Ovo', serif;}
+.slider_container{ width:100%; margin:auto; clear:both; padding:10px 0 0 0;}
+.flex-caption{ position: absolute; right:20px; bottom:10px;}
+.caption_title_line{ 
+	width:450px; 
+	padding:5px 15px 10px 15px;
+	background: rgba( 42, 59, 70, 0.8);
+	color: #fff;
+	border-radius: 5px;
+	border: #E20309 1px solid;
+}
+.flex-caption h2{ color:#fff;font-size:20px; padding:5px 0 5px 0; margin:0px;font-family: 'Ovo', serif;}
 
 .flex-container a:active,
 .flexslider a:active {outline: none;}
@@ -29,9 +35,31 @@ http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
 
 /* FlexSlider Necessary Styles
 *********************************/ 
-.flexslider {width: 100%; margin: 0; padding: 0 0 30px 0;background:url('shadow_bottom.png') no-repeat center bottom;}
-.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {max-width: 100%; display: block; border:10px #ededed solid;}
+.flexslider {
+	width: 100%; 
+	margin: 0; 
+	padding: 0 0 30px 0;
+	background: #ffffff;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    -webkit-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    -moz-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    box-shadow: 0px 2px 2px rgba(0,0,0, .2);}
+.flexslider .slides > li {
+	display: none;
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	text-align: center;
+}
+.flexslider .slides img {
+	width: 100%; 
+	display: block; 
+	padding: 10px;
+}
 .flex-pauseplay span {text-transform: capitalize;}
 .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
 html[xmlns] .slides {display: block;} 
@@ -43,12 +71,85 @@ html[xmlns] .slides {display: block;}
 .flex-container {zoom: 1; position: relative;}
 
 /* Direction Nav */
-.flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:11px; cursor: pointer; text-indent: -9999px;}
+/*.flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:11px; cursor: pointer; text-indent: -9999px;}
 .flex-direction-nav li a.next {background:url('next.png') no-repeat center; bottom:184px;}
 .flex-direction-nav li a.prev {background:url('prev.png') no-repeat center;bottom:141px;}
 .flex-direction-nav li a.next:hover {background:url('next_a.png') no-repeat center;}
 .flex-direction-nav li a.prev:hover {background:url('prev_a.png') no-repeat center;}
-.flex-direction-nav li a.disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+.flex-direction-nav li a.disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}*/
+.flex-direction-nav a {
+    display: block;
+    position: absolute;
+    margin: -17px 0 0 0;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    cursor: pointer;
+    text-indent: -9999px;
+    border: #E20309 1px solid;
+
+    background-color: #bfab8b;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#bfab8b), to(#f5e2c1));
+	background-image: -webkit-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: -moz-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: -o-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: linear-gradient(to bottom, #bfab8b, #f5e2c1);
+}
+
+.flex-direction-nav a:before {
+	display: block;
+	position: absolute;
+	content: '';
+	width: 9px;
+	height: 13px;
+	top: 11px;
+	left: 11px;
+	background-image:
+        linear-gradient(-45deg, #dac6a6 4px, transparent 4px),
+        linear-gradient(-135deg, #dac6a6 4px, transparent 4px),
+        linear-gradient(-45deg, #69604f 6px, transparent 6px),
+        linear-gradient(-135deg, #69604f 6px, transparent 6px);
+
+}
+
+.flex-direction-nav a.prev:before {
+	background-image:
+        linear-gradient(45deg, #dac6a6 4px, transparent 4px),
+        linear-gradient(135deg, #dac6a6 4px, transparent 4px),
+        linear-gradient(45deg, #69604f 6px, transparent 6px),
+        linear-gradient(135deg, #69604f 6px, transparent 6px);
+}
+
+.flex-direction-nav .next {
+    right: -5px;
+
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+.flex-direction-nav .prev {
+    left: -5px;
+
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.flex-direction-nav .next:before { background-position: -9px 0; left: 15px; }
+.flex-direction-nav .prev:before { background-position: 0 0; }
+
+.flex-direction-nav .next:after {
+    right: 0;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #31611e;
+}
+
+.flex-direction-nav .prev:after {
+    left: 0;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #31611e;
+}
 
 /* Control Nav */
 .flex-control-nav {width: 100%; position: absolute; bottom: -30px; text-align: center;}
@@ -57,6 +158,50 @@ html[xmlns] .slides {display: block;}
 .flex-control-nav li a {width: 13px; height: 13px; display: block; cursor: pointer; text-indent: -9999px;}
 .flex-control-nav li a:hover {background-position: 0 -13px;}
 .flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
+
+/*.flexslider .flex-control-nav {
+	position: absolute;
+	width: 100%;
+	bottom: -40px;
+	text-align: center;
+	margin: 0 0 0 -10px;
+}
+
+.flex-control-nav li {
+	display: inline-block;
+	zoom: 1;
+}
+
+.flex-control-paging li a {
+	display: block;
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 12px;
+	height: 12px;
+	margin: 0 3px;
+	background-color: #b6b6b6 9;
+
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+
+	-webkit-box-shadow: inset 0 0 0 2px #b6b6b6;
+	-moz-box-shadow: inset 0 0 0 2px #b6b6b6;
+	box-shadow: inset 0 0 0 2px #b6b6b6;
+}
+
+.flex-control-paging li a.active {
+	background-color: #bfab8b;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#bfab8b), to(#f5e2c1));
+	background-image: -webkit-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: -moz-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: -o-linear-gradient(top, #bfab8b, #f5e2c1);
+	background-image: linear-gradient(to bottom, #bfab8b, #f5e2c1);
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}*/
 
 /* Media Queries
 /*-----------------------------------------------------------------------------------*/
