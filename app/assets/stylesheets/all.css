@@ -76,7 +76,7 @@ header {
 }
 .item-name {
     font-weight: bold;
-    color: white;
+    color: #2a3b46;
     font-size: 1.5rem;
     font-family: "SourceSansPro-Bold",arial,sans-serif;
 }
@@ -84,7 +84,7 @@ header {
     font-size: 14px;
     letter-spacing: .03px;
     display: block;
-    color: white;
+    color: #3f4e58;
 }
 .homepage-star {
     color: white;
@@ -92,4 +92,27 @@ header {
 .item-description {
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.item-thumbnail {
+    height: 100%;
+}
+
+.item-time {
+    color: #E20309;
+}
+
+.thumbnail-section {
+    padding: 5px !important;
+    margin: 10px;    
+    background-color: #f7f7f7; 
+    -webkit-box-shadow: 0px 3px 3px 2px rgba(0,0,0, .2);
+    -moz-box-shadow: 0px 3px 3px 2px rgba(0,0,0, .2);
+    box-shadow: 0px 3px 3px 2px rgba(0,0,0, .2);
+}
+
+.thumbnail-section img {    
+    -webkit-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    -moz-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    box-shadow: 0px 2px 2px rgba(0,0,0, .2);
 }
