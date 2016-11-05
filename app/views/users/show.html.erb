@@ -37,7 +37,9 @@
       </div>
     </div>
   </div>
-  <div class="panel-footer">
-      <a href="<%= edit_user_registration_path(@user.id)%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+  <% if current_user.id == @user.id %>
+      <div class="panel-footer">
+      <a href="<%= edit_user_registration_path(@user.id)%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"> Edit</i></a>
+  <% end %>
   </div>
 </div>
