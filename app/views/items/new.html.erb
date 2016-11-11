@@ -119,7 +119,7 @@
 	$("#input-4").rating({min:1, max:5, size:'md', showClear:false});
 	$("#preview-button").on('click', function(){
 		$("#preview-name").html($("#item-name").val());
-		$("#preview-branch").html($("#item-branch").val());
+		$("#preview-brand").html($("#item-branch").val());
 		$("#preview-model").html($("#item-model").val());
 		$("#preview-ram").html($("#item-ram").val());
 		$("#preview-vga").html($("#item-vga").val());
@@ -133,7 +133,7 @@
 		$("#preview-rate").addClass("filled-stars")
 		$("#preview-pros").html($("#item-pros").val());
 		$("#preview-cons").html($("#item-cons").val());
-		$("#preview-detail").html($("#item-detail").val());
+		$("#preview-detail").html($.parseHTML(CKEDITOR.instances['item-detail'].getData()));
 	})
 </script>
 
@@ -143,30 +143,54 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Review preview</h4>
+        <h4 class="modal-title" id="myModalLabel"><b>Preview</b></h4>
       </div>
       <div class="modal-body">
-      	<ul>
-      	<img id="preview-img" src="#" alt="your image" />
-        	<li><div id="preview-name"></div></li>
-      		<li><div id="preview-branch"></div></li>
-      		<li><div id="preview-model"></div></li>
-      		<li><div id="preview-ram"></div></li>
-      		<li><div id="preview-vga"></div></li>
-      		<li><div id="preview-cd"></div></li>
-      		<li><div id="preview-hdd"></div></li>
-      		<li><div id="preview-price"></div></li>
-      		<li><div id="preview-screen"></div></li>
-      		<li><div id="preview-os"></div></li>
-      		<li><div id="preview-pin"></div></li>
-      		<input id="preview-rate" name="rate" disabled="true">
-<!--       		<div class="spec-form row">  	
-	  			<div class="rating-container rating-md rating-animate"><div class="rating"><span class="empty-stars"><span class="star"><i class="glyphicon glyphicon-star-empty"></i></span><span class="star"><i class="glyphicon glyphicon-star-empty"></i></span><span class="star"><i class="glyphicon glyphicon-star-empty"></i></span><span class="star"><i class="glyphicon glyphicon-star-empty"></i></span><span class="star"><i class="glyphicon glyphicon-star-empty"></i></span></span><span class="filled-stars" style="width: 0%;"><span class="star"><i class="glyphicon glyphicon-star"></i></span><span class="star"><i class="glyphicon glyphicon-star"></i></span><span class="star"><i class="glyphicon glyphicon-star"></i></span><span class="star"><i class="glyphicon glyphicon-star"></i></span><span class="star"><i class="glyphicon glyphicon-star"></i></span></span></div><div class="caption"><span class="label label-default">Not Rated</span></div><input id="preview-rate" name="rate" class="hide"></div>
-	  			</div> -->
-      		<li><div id="preview-pros"></div></li>
-      		<li><div id="preview-cons"></div></li>
-      		<li><div id="preview-detail"></div></li>
-        </ul>
+      	<div style="padding:10px">
+					<h1 class="article-title"><b id="preview-name"></b></h1>
+
+					<div class="row">
+						<div class="col-md-4 product-images">
+							<img class="img-responsive" id="preview-img" style="max-width:100%; max-height:100%" src="#" alt="">
+						</div>
+						<div class="col-md-8">
+							<div id="comment-top" style="cursor: pointer;" class="comment-count">0 comment(s)</div>
+							<br>
+							<div style="padding-top: 8px">
+									<input id="preview-rate", name="rate">
+							</div>
+							<p class="spec-text">SPECIFICATIONS</p>
+							<ul>
+								<li><b class="spec-type">Brand: </b><span id="preview-brand"></span></li>
+								<li><b class="spec-type">Model: </b><span id="preview-model"></span></li>
+								<li><b class="spec-type">RAM: </b><span id="preview-ram"></span></li>
+								<li><b class="spec-type">VGA: </b><span id="preview-vga"></span></li>
+								<li><b class="spec-type">Disk: </b><span id="preview-hdd"></span></li>
+								<li><b class="spec-type">Screen: </b><span id="preview-screen"></span></li>
+								<li><b class="spec-type">OS: </b><span id="preview-os"></span></li>
+								<li><b class="spec-type">Battery: </b><span id="preview-pin"></span></li>
+								<li><b class="spec-type">Price: </b><span id="preview-price"></span></li>
+							</ul>
+						</div>
+					</div>
+
+					<br>
+
+					<div class="row overview-section">
+						<div class="col-md-4">
+							<h4 class="h4-title">Pros</h4>
+							<p id="preview-cons"></p>
+						</div>
+						<div class="col-md-4">
+							<h4 class="h4-title">Cons</h4>
+							<p id="preview-pros"></p>
+						</div>
+					</div>
+
+					<div class="detailed-review-body">
+						<p id="preview-detail"></p>
+					</div>
+				</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -174,9 +198,10 @@
     </div>
   </div>
 </div>
+
 <!-- /Modal -->
 <script type="text/javascript">
-	$("#preview-rate").rating({min:1, max:5, size:'md', showClear:false});
+	$("#preview-rate").rating({min:1, max:5, size:'xs', showClear:false});
 </script>
 <script>
     function readURL(input) {
@@ -191,8 +216,8 @@
 
           $('#preview-img')
             .attr('src', e.target.result)
-            .width(150)
-            .height(150);
+            .width(400)
+            .height(400);
         };
 
         reader.readAsDataURL(input.files[0]);

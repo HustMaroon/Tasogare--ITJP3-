@@ -125,3 +125,7 @@
   border-top: 4px solid #CBCAC9;
   margin-bottom: 100px;
 }
+
+.modal-dialog {
+  width: 80% !important;
+}
