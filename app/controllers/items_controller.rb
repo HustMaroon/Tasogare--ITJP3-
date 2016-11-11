@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :rate]
 
 	def index
-		@items = Item.approved_items + current_user.items
+		@items = current_user.items
 	end
 
 	def new
