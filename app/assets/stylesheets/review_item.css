@@ -36,7 +36,7 @@
   background: #2a3b46;
   width: 200px;
   margin-top: 10px;
-  margin-right: 50px;
+  margin-right: 10px;
   margin-bottom: 100px;
   padding: 10px;
   color: #FFFFFF;
@@ -47,6 +47,9 @@
   transition: all 0.3 ease;
   cursor: pointer;
   display: inline-block;
+}
+#preview-button {  
+  background: #e41c21 !important;
 }
 .detail-content {
   text-align: center;
