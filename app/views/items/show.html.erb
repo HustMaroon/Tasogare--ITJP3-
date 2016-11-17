@@ -26,15 +26,15 @@
 			</div>
 			<p class="spec-text">SPECIFICATIONS</p>
 			<ul>
-				<li><b class="spec-type">Brand:</b> <%= @item.brand.nil? ? "No info" : @item.brand %></li>
-				<li><b class="spec-type">Model:</b> <%= @item.model.nil? ? "No info" : @item.model %></li>
-				<li><b class="spec-type">RAM:</b> <%= @item.RAM.nil? ? "No info" : @item.RAM %></li>
-				<li><b class="spec-type">VGA:</b> <%= @item.VGA.nil? ? "No info" : @item.VGA %></li>
-				<li><b class="spec-type">Disk:</b> <%= @item.HDD.nil? ? "No info" : @item.HDD %></li>
-				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? ? "No info" : @item.screen %></li>
-				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? ? "No info" : @item.OS %></li>
-				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? ? "No info" : @item.PIN %></li>
-				<li><b class="spec-type">Price:</b> <%= @item.price.nil? ? "No info" : @item.price %>$</li>
+				<li><b class="spec-type">Brand:</b> <%= @item.brand.nil? || @item.brand.empty? ? "No info" : @item.brand %></li>
+				<li><b class="spec-type">Model:</b> <%= @item.model.nil? || @item.model.empty? ? "No info" : @item.model %></li>
+				<li><b class="spec-type">RAM:</b> <%= @item.RAM.nil? || @item.RAM.empty? ? "No info" : @item.RAM %></li>
+				<li><b class="spec-type">VGA:</b> <%= @item.VGA.nil? || @item.VGA.empty? ? "No info" : @item.VGA %></li>
+				<li><b class="spec-type">Disk:</b> <%= @item.HDD.nil? || @item.HDD.empty? ? "No info" : @item.HDD %></li>
+				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? || @item.screen.empty? ? "No info" : @item.screen %></li>
+				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "No info" : @item.OS %></li>
+				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "No info" : @item.PIN %></li>
+				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.empty? ? "No info" : @item.price %>$</li>
 			</ul>
 		</div>
 	</div>
@@ -44,11 +44,11 @@
 	<div class="row overview-section">
 		<div class="col-md-4">
 			<h4 class="h4-title">Pros</h4>
-			<p><%= @item.pros.nil? ? "No pros" : @item.pros %></p>
+			<p><%= @item.pros.nil? || @item.pros.empty? ? "No pros" : @item.pros %></p>
 		</div>
 		<div class="col-md-4">
 			<h4 class="h4-title">Cons</h4>
-			<p><%=@item.cons.nil? ? "No cons" : @item.cons %></p>
+			<p><%=@item.cons.nil? || @item.cons.empty? ? "No cons" : @item.cons %></p>
 		</div>
 	</div>
 
@@ -88,5 +88,5 @@
 </div>
 
 <script type="text/javascript">
-	$("#rating1").rating({min:1, max:5, size:'xs', showClear:false});
+	$("#rating1").rating({min:1, max:5, size:'xs', showClear:false, disabled:true});
 </script>
