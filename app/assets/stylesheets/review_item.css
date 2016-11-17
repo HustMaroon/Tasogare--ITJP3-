@@ -102,8 +102,8 @@
   font-weight: bold;
 }
 .overview-section {
-  border-top: 4px solid #CBCAC9;
-  border-bottom: 4px solid #CBCAC9;
+  border-top: 2px solid #CBCAC9;
+  border-bottom: 2px solid #CBCAC9;
   margin-bottom: 10px;
 }
 .detailed-review-body {
@@ -122,10 +122,13 @@
   font-weight: bold;
 }
 .comment-section {
-  border-top: 4px solid #CBCAC9;
+  border-top: 2px solid #CBCAC9;
   margin-bottom: 100px;
 }
 
 .modal-dialog {
   width: 80% !important;
+}
+.new_comment {  
+  border-bottom: 1px solid #CBCAC9;
 }
