@@ -56,6 +56,23 @@
 			<%=raw @item.detail_review %>
 	</div>
 
+	<div class="comment" style="padding-left: 20px; margin-bottom: 50px">
+		<a class="pull-left" href="#">
+	    <% if @item.user.avatar.nil? %>
+	     	<img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+	    <% else %>
+	      <img class="avatar" src="<%=@item.user.avatar%>" alt="avatar">
+	     <% end %>
+	  </a>
+	  <div class="comment-body">
+	      <div class="comment-heading">
+	          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
+	          <h5 class="time">3 reviews</h5>
+	      </div>
+	      <p><%= time_ago_in_words(@item['created_at']) %></p>
+	  </div>
+	</div>
+
 	<h3 class="comment-title">Comments</h3>
 	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">	
 		<%= render 'comments/comment_form', item: @item%>

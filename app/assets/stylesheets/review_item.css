@@ -70,7 +70,7 @@
   text-align: center;
 }
 .article-section {
-  width: 100% !important;
+  width: 85% !important;
   padding-left: 100px !important;
   padding-right: 100px !important;
   margin: 0 auto 0;
@@ -107,7 +107,7 @@
   margin-bottom: 10px;
 }
 .detailed-review-body {
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 .spec-text {
   color: #000000;
