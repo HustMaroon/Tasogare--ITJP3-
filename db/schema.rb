@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025173911) do
+ActiveRecord::Schema.define(version: 20161117182212) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,9 +42,32 @@ ActiveRecord::Schema.define(version: 20161025173911) do
     t.text     "pros"
     t.text     "cons"
     t.text     "detail_review"
-    t.float    "rate"
     t.string   "image"
+    t.float    "rate"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "message_rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "message_rooms_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "message_room_id"
+    t.index ["message_room_id"], name: "index_message_rooms_users_on_message_room_id"
+    t.index ["user_id"], name: "index_message_rooms_users_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "message_room_id"
+    t.text     "content"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.index ["message_room_id"], name: "index_messages_on_message_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -58,19 +81,19 @@ ActiveRecord::Schema.define(version: 20161025173911) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "admin",                  default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "name"
     t.string   "gender"
     t.date     "dob"
