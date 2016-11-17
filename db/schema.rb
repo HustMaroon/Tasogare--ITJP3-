@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025173911) do
+ActiveRecord::Schema.define(version: 20161117042031) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,29 @@ ActiveRecord::Schema.define(version: 20161025173911) do
     t.text     "detail_review"
     t.string   "image"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "message_rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "message_rooms_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "message_room_id"
+    t.index ["message_room_id"], name: "index_message_rooms_users_on_message_room_id"
+    t.index ["user_id"], name: "index_message_rooms_users_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "message_room_id"
+    t.text     "content"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.index ["message_room_id"], name: "index_messages_on_message_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|

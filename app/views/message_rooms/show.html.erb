@@ -1,0 +1,8 @@
+<div class="messages-area">
+	<% @messages.each do |mess| %>
+		<%= render 'message', mess: mess %>
+	<% end %>
+</div>
+<div class="message_form">
+	<%= render 'mess_form', message_room: @message_room %>
+</div>

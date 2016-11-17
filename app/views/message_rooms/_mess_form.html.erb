@@ -1,0 +1,5 @@
+<%= form_for @message_room.messages.build, remote: true do |f| %>
+	<%= f.text_field :content, placeholder: 'enter message...' %>
+	<%= f.hidden_field :message_room, value: @message_room.id %>
+	<%= f.submit 'send', class: 'btn btn-primary' %>
+<% end %>

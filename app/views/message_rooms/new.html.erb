@@ -1,0 +1,4 @@
+<%=form_tag controller: :message_rooms, action: :create do %>
+	<%= text_field_tag 'content', nil, placeholder: "Your message here..." %>
+	<%= button_tag 'submit', class: 'btn btn-primary' %>
+	<% end %>

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
-  get 'static_pages/home'
 
   root 'home#index'
 
@@ -13,6 +10,8 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :users
+  resources :message_rooms
+  resources :messages
   get 'search' => 'items#search'
   get 'admins/users' => 'admins#users_index'
   get 'admins/items' => 'admins#items_index'

@@ -1,0 +1,7 @@
+<div class="message-content">
+	<%= link_to mess.user.name.nil? ? mess.user.email : mess.user.name, mess.user %>
+	<%= mess.content %>
+	<span class="timestamp">
+    <%= time_ago_in_words(mess.created_at) %> ago.
+  </span>
+</div>

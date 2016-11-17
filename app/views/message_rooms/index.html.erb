@@ -1,0 +1,6 @@
+<h1> Messages from users </h1>
+<ul> 
+	<% @message_rooms.each do |mr| %>
+		<%= render 'message_room', message_room: mr %>
+	<% end %>
+</ul>
