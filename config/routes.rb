@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  get 'static_pages/home'
-
   root 'home#index'
 
 
