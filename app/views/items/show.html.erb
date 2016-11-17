@@ -1,7 +1,7 @@
 
 <div class="article-section container">
 
-	<% if @item.user.id == current_user.id %>
+	<% if current_user && @item.user.id == current_user.id %>
 		<div style="text-align:right">
 			<%= link_to edit_item_path(@item.id), class: "btn btn-primary" do %>
 		    <i class="glyphicon glyphicon-edit"> Edit</i>
