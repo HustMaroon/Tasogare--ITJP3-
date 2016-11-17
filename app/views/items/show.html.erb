@@ -88,5 +88,7 @@
 </div>
 
 <script type="text/javascript">
-	$("#rating1").rating({min:1, max:5, size:'xs', showClear:false, disabled:true});
+	if ($('.rating').length == 0) {
+		$("#rating1").rating({min:1, max:5, size:'xs', showClear:false, disabled:true});
+	}
 </script>
