@@ -70,6 +70,10 @@ class ItemsController < ApplicationController
 		@items = Item.search(params[:search])
 	end
 
+	def filter
+		@items = Item.filter(params)
+	end
+
 private
 	def item_params
 		params.require(:item).permit(:name, :cd, :RAM, :VGA, :HDD, :price, :brand, :screen, 

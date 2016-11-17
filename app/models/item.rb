@@ -28,7 +28,16 @@ class Item < ApplicationRecord
 	  else
 	    Item.all
 	  end
-	end 
+	end
+
+	def self.filter(params)
+		if params[:price] and params[:RAM] and params[:VGA] and params[:HDD] and params[:model] and params[:brand] and params[:PIN]
+			where("price < ? OR RAM LIKE ? OR VGA LIKE ? OR HDD LIKE ? OR model LIKE ? OR brand LIKE ? OR PIN LIKE ?",
+						"#{params[:price]}", "%#{params[:RAM]}%", "%#{params[:VGA]}%", "%#{params[:HDD]}%", "%#{params[:model]}%", "%#{params[:brand]}%", "%#{params[:PIN]}%");
+		else
+			nil
+		end
+	end
 
 end
  

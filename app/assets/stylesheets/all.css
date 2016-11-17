@@ -128,3 +128,26 @@ header {
     width: 80% !important;
     margin: auto !important;
 }
+.filter-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #2a3b46;
+    width: 150px;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+    /* margin-bottom: 100px; */
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border: 2px #2a3b46;
+    border-radius: 2px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.filter-container select {
+    width: 100%;
+    margin-bottom: 10px;
+}
