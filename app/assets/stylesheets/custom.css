@@ -3,7 +3,7 @@
 
 
 body {
-  margin-top: 60px !important;  
+  margin-top: 50px !important;  
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;    
@@ -15,18 +15,35 @@ html {
 http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
 */
 /*-----------------------------------------------------------------------------------*/
-.slider_container{ width:100%; margin:auto; clear:both; padding:10px 0 0 0;}
-.flex-caption{ position: absolute; right:20px; bottom:10px;}
-.caption_title_line{ 
-	width:450px; 
-	padding:5px 15px 10px 15px;
+.slider_container { 
+	width:100%; 
+	margin:auto; 
+	clear:both; 
+	padding:0;}
+.flex-caption{ 
+	position: absolute; 
+	bottom: 10px;
+	width: 100%;
+}
+.caption_title_line { 
+	width: 80%; 
+	padding: 5px 15px 10px 15px;
 	background: rgba( 42, 59, 70, 0.8);
 	color: #fff;
 	border-radius: 5px;
-	border: #E20309 1px solid;
+	margin: auto;
 }
-.flex-caption h2{ color:#fff;font-size:20px; padding:5px 0 5px 0; margin:0px;font-family: 'Ovo', serif;}
-
+.flex-caption h2 { 
+	color: #fff;
+	font-size: 30px; 
+	padding: 5px 0 5px 0; 
+	margin: 0px;
+	font-family: 'Ovo', serif;
+}
+.flex-caption p {
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.8);
+}
 .flex-container a:active,
 .flexslider a:active {outline: none;}
 .slides,
@@ -38,7 +55,7 @@ http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
 .flexslider {
 	width: 100%; 
 	margin: 0; 
-	padding: 0 0 30px 0;
+	padding: 0;
 	background: #ffffff;
 
     -webkit-border-radius: 3px;
@@ -58,7 +75,6 @@ http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
 .flexslider .slides img {
 	width: 100%; 
 	display: block; 
-	padding: 10px;
 }
 .flex-pauseplay span {text-transform: capitalize;}
 .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
@@ -81,19 +97,11 @@ html[xmlns] .slides {display: block;}
     display: block;
     position: absolute;
     margin: -17px 0 0 0;
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
     top: 50%;
     cursor: pointer;
     text-indent: -9999px;
-    border: #E20309 1px solid;
-
-    background-color: #bfab8b;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#bfab8b), to(#f5e2c1));
-	background-image: -webkit-linear-gradient(top, #bfab8b, #f5e2c1);
-	background-image: -moz-linear-gradient(top, #bfab8b, #f5e2c1);
-	background-image: -o-linear-gradient(top, #bfab8b, #f5e2c1);
-	background-image: linear-gradient(to bottom, #bfab8b, #f5e2c1);
 }
 
 .flex-direction-nav a:before {
@@ -104,24 +112,20 @@ html[xmlns] .slides {display: block;}
 	height: 13px;
 	top: 11px;
 	left: 11px;
-	background-image:
-        linear-gradient(-45deg, #dac6a6 4px, transparent 4px),
-        linear-gradient(-135deg, #dac6a6 4px, transparent 4px),
-        linear-gradient(-45deg, #69604f 6px, transparent 6px),
-        linear-gradient(-135deg, #69604f 6px, transparent 6px);
-
 }
-
+.flex-direction-nav li a.next {
+	background:url('next_button.png');
+	background-size: contain;
+}
+.flex-direction-nav li a.prev {
+	background:url('prev_button.png');
+	background-size: contain;
+}
 .flex-direction-nav a.prev:before {
-	background-image:
-        linear-gradient(45deg, #dac6a6 4px, transparent 4px),
-        linear-gradient(135deg, #dac6a6 4px, transparent 4px),
-        linear-gradient(45deg, #69604f 6px, transparent 6px),
-        linear-gradient(135deg, #69604f 6px, transparent 6px);
 }
 
 .flex-direction-nav .next {
-    right: -5px;
+    right: 12px;
 
     -webkit-border-radius: 3px 0 0 3px;
     -moz-border-radius: 3px 0 0 3px;
@@ -129,7 +133,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .flex-direction-nav .prev {
-    left: -5px;
+    left: 12px;
 
     -webkit-border-radius: 0 3px 3px 0;
     -moz-border-radius: 0 3px 3px 0;
@@ -207,8 +211,8 @@ html[xmlns] .slides {display: block;}
 /*-----------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 1000px) {
-.slider_container{ width:90%; margin:0 0 0 2%; clear:both; background:none; padding:30px 0 0 0;}
-.flexslider {width: 100%; margin: 0; padding:0 0 30px 0;background:none;}
+.slider_container{ width:90%; margin:0; clear:both; background:none; padding:0;}
+.flexslider {width: 100%; margin: 0; padding:0;background:none;}
 .flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:-10px; cursor: pointer; text-indent: -9999px;}
 .flex-direction-nav li a.next {background:url('next.png') no-repeat center; bottom:85px;}
 .flex-direction-nav li a.prev {background:url('prev.png') no-repeat center;bottom:40px;}

@@ -12,14 +12,14 @@
       <p class="item-detail-review">
         <%=
           if item['detail_review'] != nil
-            raw item['detail_review'][0..20]
+            raw item['detail_review'][0..120]
           else
             'No detail review'
           end
         %>
       </p>
-      <p class="homepage-star"> <%= item['value'].to_s[0..3]%>
-        <%=
+      <p class="homepage-star"><span style="color:black">Rating: </span><%= item['value'].to_s[0..3]%>
+        <!-- <p><%=
           item['value'] = Float(item['value'])
           case
             when item['value'] <= 1.5
@@ -33,7 +33,7 @@
             else
               '★★★★★'
           end
-        %>
+        %></p> -->
       </p>
     </div>
   </a>
