@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :edit, :update, :destroy, :rate]
 
 	def index
-		@items = Item.approved_items + current_user.items
+		@items = current_user.items
 	end
 
 	def new
@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
 	end
 
 	def update
-		byebug
 		item = Item.find(params[:id])
 		item.update_attributes(item_params) unless params[:commit] == "Rate"
 		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)
