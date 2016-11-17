@@ -22,12 +22,7 @@
 			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> comment(s)</div>
 			<br>
 			<div style="padding-top: 8px">
-				<!-- <input id="rating1" value="<%=@rate_point%>"> -->
-				<%=form_for @item do |f|%>
-					<!-- <input id="rating1" value="<%=@rate_point%>"> -->
 					<input id="rating1", name="rate", value="<%=@rate_point%>">
-					<%=f.submit 'Rate', class: 'btn btn-primary' %>
-				<%end%>
 			</div>
 			<p class="spec-text">SPECIFICATIONS</p>
 			<ul>
@@ -49,11 +44,11 @@
 	<div class="row overview-section">
 		<div class="col-md-4">
 			<h4 class="h4-title">Pros</h4>
-			<p>@item.pros</p>
+			<p><%=@item.pros%></p>
 		</div>
 		<div class="col-md-4">
 			<h4 class="h4-title">Cons</h4>
-			<p>@item.cons</p>
+			<p><%=@item.cons%></p>
 		</div>
 	</div>
 

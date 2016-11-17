@@ -77,7 +77,7 @@
   <div class="review-form-box container-fluid">
   	<b><h3 class="new-review-title">What do you think about it?</h3></b>
   	<div class="spec-form row">  	
-  			<input id="input-4" name="rate">
+  			<input id="item-rate" name="rate">
   	</div>
   	<br>
   </div>	
@@ -116,7 +116,7 @@
 <%end%>
 
 <script type="text/javascript">
-	$("#input-4").rating({min:1, max:5, size:'md', showClear:false});
+	$("#item-rate").rating({min:1, max:5, size:'md', showClear:false});
 	$("#preview-button").on('click', function(){
 		$("#preview-name").html($("#item-name").val());
 		$("#preview-brand").html($("#item-branch").val());
@@ -129,8 +129,7 @@
 		$("#preview-screen").html($("#item-screen").val());
 		$("#preview-os").html($("#item-os").val());
 		$("#preview-pin").html($("#item-pin").val());
-		// $("#preview-rate").val($("#item-rate").val());
-		$("#preview-rate").addClass("filled-stars")
+		$("#preview-rate").rating('update', $("#item-rate").val());
 		$("#preview-pros").html($("#item-pros").val());
 		$("#preview-cons").html($("#item-cons").val());
 		$("#preview-detail").html($.parseHTML(CKEDITOR.instances['item-detail'].getData()));
