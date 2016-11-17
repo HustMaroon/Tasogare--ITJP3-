@@ -57,8 +57,10 @@
 	</div>
 
 	<h3 class="comment-title">Comments</h3>
-	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">	
+	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">
+    <% if current_user %>
 		<%= render 'comments/comment_form', item: @item%>
+    <% end %>
 		<div id="comments-list">
 			<% @item.comments.each do |comment| %>
 				<%= render 'comments/comment', comment: comment%>
