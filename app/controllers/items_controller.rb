@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
 	end
 
 	def update
-		byebug
 		item = Item.find(params[:id])
 		item.update_attributes(item_params) unless params[:commit] == "Rate"
 		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)

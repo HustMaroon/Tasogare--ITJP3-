@@ -34,7 +34,7 @@
 				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? || @item.screen.empty? ? "No info" : @item.screen %></li>
 				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "No info" : @item.OS %></li>
 				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "No info" : @item.PIN %></li>
-				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.empty? ? "No info" : @item.price %>$</li>
+				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.nil? ? "No info" : @item.price %>$</li>
 			</ul>
 		</div>
 	</div>
