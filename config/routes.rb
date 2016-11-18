@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :users
+  resources :message_rooms
+  resources :messages
   get 'search' => 'items#search'
   get 'filter' => 'items#filter'
   post 'filter' => 'items#filter'

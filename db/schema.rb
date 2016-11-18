@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20161117182212) do
     t.text     "pros"
     t.text     "cons"
     t.text     "detail_review"
-    t.string   "image"
     t.float    "rate"
+    t.string   "image"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
