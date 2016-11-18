@@ -1,7 +1,20 @@
-<div class="message-content">
-	<%= link_to mess.user.name.nil? ? mess.user.email : mess.user.name, mess.user %>
-	<%= mess.content %>
-	<span class="timestamp">
-    <%= time_ago_in_words(mess.created_at) %> ago.
-  </span>
+<div class="panel-body">
+  <div class="media">
+    <a class="pull-left">
+      <% unless mess.user.avatar.url.nil? %>
+          <%= image_tag mess.user.avatar.url, class: "message-avatar" %>
+      <% else %>
+          <%= image_tag "profile.jpg", class: "message-avatar" %>
+      <% end %>
+    </a>
+    <div class="media-body">
+      <%= mess.content %>
+      <br>
+      <small class="text-muted">
+        <%= link_to mess.user.name.nil? ? mess.user.email : mess.user.name, mess.user %> |
+        <%= time_ago_in_words(mess.created_at) %> ago.
+      </small>
+      <hr>
+    </div>
+  </div>
 </div>

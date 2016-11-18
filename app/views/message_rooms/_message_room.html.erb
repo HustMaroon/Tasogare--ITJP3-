@@ -1,3 +1,5 @@
-<li><%= link_to message_room.users.where(admin: false).first.email, message_room%>
-	<span> <%= message_room.messages.last.content %></span>
-</li>
+<tr>
+  <td><%= message_room.id %></td>
+  <td><%= link_to message_room.users.where(admin: false).first.email, message_room %></td>
+  <td><%= message_room.messages.last.content %></td>
+</tr>
