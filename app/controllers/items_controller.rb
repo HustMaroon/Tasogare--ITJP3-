@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
 
 	def create
 		item = current_user.items.build(item_params)
+		item.rate = params[:rate]
 		if item.save
-			item.ratings.create!(rate: params[:rate], user: current_user)
 			redirect_to item
 			flash.now[:success]= "review created"
 		else
@@ -26,24 +26,15 @@ class ItemsController < ApplicationController
 	end
 
 	def update
-		byebug
 		item = Item.find(params[:id])
-		item.update_attributes(item_params) unless params[:commit] == "Rate"
-		rating = Rating.find_by(user_id: current_user.id, item_id: item.id)
-		if rating.nil?
-			item.ratings.create!(user: current_user, rate: params[:rate])
-		else
-			rating.update_attributes(rate: params[:rate])
-		end
+		item.update_attributes(item_params)
+		item.rate = params[:rate]
+		item.save
 		redirect_to item
 	end
 
 	def show
 		@item = Item.find(params[:id])
-		@ratings = @item.ratings.count
-		@ratings == 0 ? @rate_point = 0 : @rate_point = sum(@item.ratings)/@ratings
-		rating = Rating.find_by(user: current_user, item: @item)
-		@rated_value = rating.nil? ? 0 : rating.rate 
 	end
 
 	def destroy
@@ -69,6 +60,10 @@ class ItemsController < ApplicationController
 
 	def search
 		@items = Item.search(params[:search])
+	end
+
+	def filter
+		@items = Item.filter(params)
 	end
 
 private
