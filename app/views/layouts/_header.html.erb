@@ -22,8 +22,10 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <li><button type="button"><%=link_to 'Message(s)', message_rooms_path %><span class="badge">
-                        <%=check_for_messages%></span></button></li>
+                <li>
+                  <%=link_to 'Message(' + check_for_messages.to_s + ')', message_rooms_path, {class: 'header-item'}%>
+
+                </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle email-text header-item" data-toggle="dropdown">
                 Hello,admin <b class="caret"></b>
@@ -42,7 +44,7 @@
           <%else %>
             <li>
                 <%=link_to 'Message(' + check_for_messages.to_s + ')', current_user.message_rooms.empty? ? new_message_room_path : current_user.message_rooms.first, {class: 'header-item'}%>
-              
+
             </li>
                 <li><%= link_to "Filter", filter_path, {class: "header-item"} %></li>
             <li><%= link_to "Post a review", new_item_path, {class: "header-item"} %></li>
