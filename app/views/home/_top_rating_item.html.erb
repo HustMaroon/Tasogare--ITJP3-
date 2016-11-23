@@ -18,8 +18,8 @@
           end
         %>
       </p>
-      <p class="homepage-star"><span style="color:black">Rating: </span><%= item['value'].to_s[0..3]%>
-        <!-- <p><%=
+      <p class="homepage-star"><span style="color:black">Rating: </span>
+        <%=
           item['value'] = Float(item['value'])
           case
             when item['value'] <= 1.5
@@ -33,7 +33,7 @@
             else
               '★★★★★'
           end
-        %></p> -->
+        %>
       </p>
     </div>
   </a>
