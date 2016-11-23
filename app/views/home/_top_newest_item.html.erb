@@ -18,6 +18,7 @@
           end
         %>
       </p>
+      <p class="glyphicon glyphicon-comment"><%=item.comments.count%></p>
       <p class="item-time"><span style="color:black">By </span><b><%=link_to item.user.name, item.user %></b>, <span style="color:black">it has been </span><%= time_ago_in_words(item['created_at'])%></p>
     </div>
   </a>

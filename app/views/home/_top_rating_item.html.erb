@@ -18,6 +18,8 @@
           end
         %>
       </p>
+      <%item_obj = Item.find(item['id'])%>
+      <p class="glyphicon glyphicon-comment"><%=item_obj.comments.count%></p>
       <p class="homepage-star"><span style="color:black">Rating: </span>
         <%=
           item['value'] = Float(item['value'])
