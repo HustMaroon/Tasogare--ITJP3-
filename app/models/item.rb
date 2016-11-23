@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
 	def self.get_top_newest(number)
 		# Item.where(approved: true).order('created_at DESC').limit(number)
-		Item.order('created_at DESC').limit(number)
+		Item.where(approved: true).order('created_at DESC').limit(number)
 	end
 
 	def self.get_slide_items(number)
