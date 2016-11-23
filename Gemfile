@@ -36,6 +36,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'jquery-ui-rails'
+gem 'pg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
