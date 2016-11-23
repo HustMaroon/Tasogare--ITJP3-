@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require ckeditor/init
+//= require jquery-ui
 
 
 $('.dropdown-toggle').dropdown()  

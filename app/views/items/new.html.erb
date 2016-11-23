@@ -1,4 +1,4 @@
-<%= form_for Item.new do |f| %>
+<%= form_for @item do |f| %>
 
 <div class="new-review-page">
   <div class="review-form-box container-fluid">
@@ -14,7 +14,7 @@
 
 				<div class="field">			
 					<%= f.label :brand %>
-					<%= f.text_field :brand, :class => "form-field form-control", id:"item-branch" %>
+					<%= f.text_field :brand, :class => "form-field form-control", id:"item-brand" %>
 				</div>
 
 				<div class="field">			
@@ -119,7 +119,7 @@
 	$("#item-rate").rating({min:1, max:5, size:'md', showClear:false});
 	$("#preview-button").on('click', function(){
 		$("#preview-name").html($("#item-name").val());
-		$("#preview-brand").html($("#item-branch").val());
+		$("#preview-brand").html($("#item-brand").val());
 		$("#preview-model").html($("#item-model").val());
 		$("#preview-ram").html($("#item-ram").val());
 		$("#preview-vga").html($("#item-vga").val());
@@ -227,3 +227,42 @@
       }
     }
 </script>
+
+ <script>
+  $( function() {
+    var availableTags = [
+    	<%@items_name.each do |name|%>
+    		"<%=name%>",
+    		<%end%>
+    ];
+    $( "#item-name" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+
+  <script>
+	$( "#item-name").on( "autocompleteselect", function() {
+		var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        	console.log(JSON.parse(xmlHttp.responseText));
+          	// var item =JSON.parse(xmlHttp.responseText);
+          	// console.log(item["detail_review"]);
+          	$("#item-brand").val(JSON.parse(xmlHttp.responseText)["brand"]);
+						$("#item-model").val(JSON.parse(xmlHttp.responseText)["model"]);
+						$("#item-ram").val(JSON.parse(xmlHttp.responseText)["RAM"]);
+						$("#item-vga").val(JSON.parse(xmlHttp.responseText)["VGA"]);
+						$("#item-cd").val(JSON.parse(xmlHttp.responseText)["cd"]);
+						$("#item-price").val(JSON.parse(xmlHttp.responseText)["price"]);
+						$("#item-screen").val(JSON.parse(xmlHttp.responseText)["screen"]);
+						$("#item-os").val(JSON.parse(xmlHttp.responseText)["OS"]);
+						$("#item-pin").val(JSON.parse(xmlHttp.responseText)["PIN"]);
+						$("#item-pros").val(JSON.parse(xmlHttp.responseText)["pros"]);
+						$("#item-cons").val(JSON.parse(xmlHttp.responseText)["cons"]);
+    }
+    xmlHttp.open("GET", "<%=get_item_path%>"+"?"+"item_name="+$(this).val(), true);
+    xmlHttp.send(null);
+	} );
+
+  </script>

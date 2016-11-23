@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   post 'admins/item/approve' => 'admins#approve_item'
   post 'admins/item/unapprove' => 'admins#unapprove_item'
   post 'rate' => 'items#rate'
-
+  get 'get-item' => 'items#get_item'
 end
 	

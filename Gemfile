@@ -35,6 +35,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'ckeditor'
+gem 'jquery-ui-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
