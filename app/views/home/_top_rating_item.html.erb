@@ -1,36 +1,36 @@
 <div class="col-lg-3 col-md-4 col-xs-6 thumb thumbnail-section" style="margin-top: 20px; height: 300px">
-  <a class="item-thumbnail" href="/items/<%=item['id']%>" >
+  <%link_to item, class: "item-thumbnail" %>
     <div style="height: 60%; width: 100%">
-      <% if item['image'].nil? %>
+      <% if item.image.nil? %>
           <img class="img-responsive" style="width: 100%; height: 100%" src="http://placehold.it/400x300" alt="">
       <% else %>
-          <img class="img-responsive" style="width: 100%; height: 100%" src="/uploads/item/image/<%= item['id'].to_s + '/' + item['image'] %>" alt="">
+          <%= image_tag item.image, class: "img-responsive"%>
       <% end %>
     </div>
     <div class="item-description">
-      <p class="item-name"><%= item['name'] %></p>
+      <p class="item-name"><%= item.name %></p>
       <p class="item-detail-review">
         <%=
-          if item['detail_review'] != nil
-            raw item['detail_review'][0..120]
+          if item.detail_review != nil
+            raw item.detail_review
           else
             'No detail review'
           end
         %>
       </p>
-      <%item_obj = Item.find(item['id'])%>
-      <p class="glyphicon glyphicon-comment"><%=item_obj.comments.count%></p>
+      <p class="glyphicon glyphicon-comment"><%=item.comments.count%></p>
       <p class="homepage-star"><span style="color:black">Rating: </span>
         <%=
-          item['value'] = Float(item['value'])
           case
-            when item['value'] <= 1.5
+            when item.rate.nil?
+              '☆☆☆☆☆' 
+            when item.rate <= 1.5
               '★☆☆☆☆'
-            when item['value'] <= 2.5
+            when item.rate <= 2.5
               '★★☆☆☆'
-            when item['value'] <= 3.5
+            when item.rate <= 3.5
               '★★★☆☆'
-            when item['value'] <= 4.5
+            when item.rate <= 4.5
               '★★★★☆'
             else
               '★★★★★'

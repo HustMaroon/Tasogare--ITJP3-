@@ -22,6 +22,10 @@ class Item < ApplicationRecord
 		Item.where(approved: true).order("RANDOM()").limit(number)
 	end
 
+	def self.get_top_ratings(number)
+		Item.where(approved: true).order('rate DESC').limit(number)
+	end
+
 	def self.search(search)
 	  if search
 	    where("name LIKE ?", "%#{search}%")
