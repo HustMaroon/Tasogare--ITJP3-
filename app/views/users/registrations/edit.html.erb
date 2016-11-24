@@ -1,5 +1,6 @@
 
-<div style="width:60%; margin:auto">
+<div class="content-container">
+  <div style="width:60%; margin:auto">
   <h2>Edit profile</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
@@ -63,4 +64,6 @@
   <div style="text-align:center; border-top: 2px solid #CBCAC9; margin-top:40px; margin-bottom:100px">
     <h4>Unhappy? <%= link_to "Cancel your account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %></h4>
   </div>
+</div>
+
 </div>

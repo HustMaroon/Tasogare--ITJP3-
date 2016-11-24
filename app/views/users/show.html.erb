@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-info content-container">
   <div class="panel-heading">
     <h3 class="panel-title">Profile</h3>
   </div>
@@ -17,7 +17,7 @@
           <tbody>
           <tr>
             <td>Name</td>
-            <td><%= @user.name%></td>
+            <td><%= @user.name.nil? ? "No info" : @user.name %></td>
           </tr>
           <tr>
             <td>Email</td>
@@ -25,11 +25,11 @@
           </tr>
           <tr>
             <td>Date of Birth</td>
-            <td><%= @user.dob %></td>
+            <td><%= @user.dob.nil? ? "No info" : @user.dob %></td>
           </tr>
           <tr>
             <td>Gender</td>
-            <td><%= @user.gender %></td>
+            <td><%= @user.gender.nil? ? "Not specified" : @user.gender %></td>
           </tr>
 
           </tbody>
@@ -44,7 +44,7 @@
   </div>
 
  <!-- User items -->
-  <div class="home-container container">
+  <div class="my-container" style="padding:30px; text-align:center">
     <div class="row">
 
       <div class="col-lg-12">
