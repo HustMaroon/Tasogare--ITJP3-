@@ -8,8 +8,8 @@
       <% end %>
     </div>
     <div class="item-description">
-      <p class="item-name"><%= item.name %></p>
-      <p class="item-detail-review">
+      <p class="item-name"><%= link_to item.name, item %></p>
+     <!--  <p class="item-detail-review">
         <%=
           if item.detail_review != nil
             raw item.detail_review
@@ -17,7 +17,7 @@
             'No detail review'
           end
         %>
-      </p>
+      </p> -->
       <p class="glyphicon glyphicon-comment"><%=item.comments.count%></p>
       <p class="homepage-star"><span style="color:black">Rating: </span>
         <%=
