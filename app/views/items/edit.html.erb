@@ -1,97 +1,229 @@
 <%= form_for @item do |f| %>
 
-    <div class="new-review-page">
-      <div class="pc-spec-form-box">
+<div class="new-review-page">
+  <div class="review-form-box container-fluid">
+    <b><h3 class="new-review-title">Device specifications</h3></b>
 
-        <b><h3 class="new-review-title">Enter PC spec here</h3></b>
+    <div class="spec-form row">
+      <div class="col-md-6">
 
-        <div class="spec-form">
+        <div class="field">
+          <%=f.label :name %>
+          <%=f.text_field :name, :class => "form-field form-control", id: "item-name" %>
+        </div>
 
-          <div class="filed">
-            <%= f.label :image %>
-            <%= f.file_field :image %>
-          </div>
+        <div class="field">     
+          <%= f.label :brand %>
+          <%= f.text_field :brand, :class => "form-field form-control", id:"item-branch" %>
+        </div>
 
-          <div class="field">
-            <%= f.label :name %>
-            <%= f.text_field :name, :class => "form-field form-control" %>
-          </div>
+        <div class="field">     
+          <%= f.label :model %>
+          <%= f.text_field :model, :class => "form-field form-control", id: "item-model" %>
+        </div>
 
-          <div class="field">
-            <%= f.label :brand %>
-            <%= f.text_field :brand, :class => "form-field form-control" %>
-          </div>
+        <div class="field">
+          <%= f.label :RAM %>
+          <%= f.text_field :RAM, :class => "form-field form-control", id: "item-ram" %>
+        </div>
 
-          <div class="field">
-            <%= f.label :model %>
-            <%= f.text_field :model, :class => "form-field form-control" %>
-          </div>
+        <div class="field">
+          <%= f.label :VGA %>
+          <%= f.text_field :VGA, :class => "form-field form-control", id: "item-vga" %>
+        </div>
 
-          <div class="field">
-            <%= f.label :cd %>
-            <%= f.select :cd, ["yes", "no"], {}, {:class => "form-control"} %>
-          </div>
-
-          <div class="field">
-            <%= f.label :RAM %>
-            <%= f.text_field :RAM, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :VGA %>
-            <%= f.text_field :VGA, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :HDD %>
-            <%= f.text_field :HDD, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :price %>
-            <%= f.text_field :price, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :screen %>
-            <%= f.text_field :screen, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :OS %>
-            <%= f.text_field :OS, :class => "form-field form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :PIN %>
-            <%= f.text_field :PIN, :class => "form-field form-control" %>
-          </div>
-
-          <div class="review-content">
-            <%= f.label :detail_review %>
-            <%= f.cktext_area :detail_review %>
-          </div>
-
-          <div class="pc-spec-form-box">
-            <b><h3 class="new-review-title">What do you think about it?</h3></b>
-            <div class="spec-form">
-              <input id="rating1" name="rate" class="rating rating-loading" data-show-clear="false" data-show-caption="true" value="<%= @item.rate %>">
-            </div>
-            <br>
-          </div>
-
-          <div class="post-actions">
-            <%= f.submit "Update", :class => "summit-button" %>
-          </div>
-
-
+        <div class="field">   
+          <%= f.label :cd %>
+          <%= f.select :cd, ["yes", "no"], {}, {:class => "form-control", :id => "item-cd"} %>
         </div>
       </div>
+    
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :HDD %>
+          <%= f.text_field :HDD, :class => "form-field form-control", id: "item-hdd" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :price %>
+          <%= f.text_field :price, :class => "form-field form-control", id: "item-price" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :screen %>
+          <%= f.text_field :screen, :class => "form-field form-control", id: "item-screen" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :OS %>
+          <%= f.text_field :OS, :class => "form-field form-control", id: "item-os" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :PIN %>
+          <%= f.text_field :PIN, :class => "form-field form-control", id: "item-pin" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :image%><br/>
+          <%= f.file_field :image, onchange:"readURL(this)"%>
+          <img id="img_prev" src="#" alt="your image" />
+        </div>
+
+      </div>
     </div>
+  </div>
 
-<% end %>
+  <div class="review-form-box container-fluid">
+    <b><h3 class="new-review-title">What do you think about it?</h3></b>
+    <div class="spec-form row">   
+        <input id="item-rate" name="rate">
+    </div>
+    <br>
+  </div>  
 
+  <div class="review-form-box container-fluid">  
+    <b><h3 class="new-review-title">Some thoughts</h3></b>
+    <div class="spec-form row">
+      <div class="col-md-6">
+        <b><h3 class="new-review-title">Pros</h3></b>
+        <%= f.text_area :pros, size: "50x7", class: 'pros-cons', id: "item-pros" %>
+      </div>
+      <div class="col-md-6">
+        <b><h3 class="new-review-title">Cons</h3></b>
+        <%= f.text_area :cons, size: "50x7", class: 'pros-cons', id: "item-cons" %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="review-form-box container-fluid">
+    <b><h3 class="new-review-title">Detailed review</h3></b>
+
+    <div class="detail-content">
+      <div class="review-content">
+        <%=f.cktext_area :detail_review, id: "item-detail"%>
+      </div>
+      <div class="post-actions">
+        <%= f.submit "Update", :class => "summit-button", :id => "summit-button" %>
+        <button type="button" class="summit-button" data-toggle="modal" data-target="#itemPreview" id="preview-button">
+          Preview
+        </button>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<%end%>
 
 <script type="text/javascript">
-  $("#rating1").rating({min: 1, max: 5, size: 'md', showClear: false, disabled: false});
+  $("#item-rate").rating({min:1, max:5, size:'md', showClear:false});
+  $("#preview-button").on('click', function(){
+    $("#preview-name").html($("#item-name").val());
+    $("#preview-brand").html($("#item-branch").val());
+    $("#preview-model").html($("#item-model").val());
+    $("#preview-ram").html($("#item-ram").val());
+    $("#preview-vga").html($("#item-vga").val());
+    $("#preview-cd").html($("#item-cd").val());
+    $("#preview-hdd").html($("#item-name").val());
+    $("#preview-price").html($("#item-price").val());
+    $("#preview-screen").html($("#item-screen").val());
+    $("#preview-os").html($("#item-os").val());
+    $("#preview-pin").html($("#item-pin").val());
+    $("#preview-rate").rating('update', $("#item-rate").val());
+    $("#preview-pros").html($("#item-pros").val());
+    $("#preview-cons").html($("#item-cons").val());
+    $("#preview-detail").html($.parseHTML(CKEDITOR.instances['item-detail'].getData()));
+  })
+</script>
+
+  <!-- Modal -->
+<div class="modal fade" id="itemPreview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><b>Preview</b></h4>
+      </div>
+      <div class="modal-body">
+        <div style="padding:10px">
+          <h1 class="article-title"><b id="preview-name"></b></h1>
+
+          <div class="row">
+            <div class="col-md-4 product-images">
+              <img class="img-responsive" id="preview-img" style="max-width:100%; max-height:100%" src="#" alt="">
+            </div>
+            <div class="col-md-8">
+              <div id="comment-top" style="cursor: pointer;" class="comment-count">0 comment(s)</div>
+              <br>
+              <div style="padding-top: 8px">
+                  <input id="preview-rate", name="rate">
+              </div>
+              <p class="spec-text">SPECIFICATIONS</p>
+              <ul>
+                <li><b class="spec-type">Brand: </b><span id="preview-brand"></span></li>
+                <li><b class="spec-type">Model: </b><span id="preview-model"></span></li>
+                <li><b class="spec-type">RAM: </b><span id="preview-ram"></span></li>
+                <li><b class="spec-type">VGA: </b><span id="preview-vga"></span></li>
+                <li><b class="spec-type">Disk: </b><span id="preview-hdd"></span></li>
+                <li><b class="spec-type">Screen: </b><span id="preview-screen"></span></li>
+                <li><b class="spec-type">OS: </b><span id="preview-os"></span></li>
+                <li><b class="spec-type">Battery: </b><span id="preview-pin"></span></li>
+                <li><b class="spec-type">Price: </b><span id="preview-price"></span></li>
+              </ul>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row overview-section">
+            <div class="col-md-4">
+              <h4 class="h4-title">Pros</h4>
+              <p id="preview-cons"></p>
+            </div>
+            <div class="col-md-4">
+              <h4 class="h4-title">Cons</h4>
+              <p id="preview-pros"></p>
+            </div>
+          </div>
+
+          <div class="detailed-review-body">
+            <p id="preview-detail"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="preview-post-button" class="btn btn-default" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /Modal -->
+<script type="text/javascript">
+  $("#preview-rate").rating({min:1, max:5, size:'xs', showClear:false});
+  $("#preview-post-button").click(function() {
+    $("#summit-button").click();
+  })
+</script>
+<script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#img_prev')
+            .attr('src', e.target.result)
+            .width(150)
+            .height(150);
+
+          $('#preview-img')
+            .attr('src', e.target.result)
+            .width(400)
+            .height(400);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
 </script>

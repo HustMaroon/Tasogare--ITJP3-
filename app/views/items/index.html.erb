@@ -1,18 +1,19 @@
 <% provide(:title, 'Items') %>
 
-      <table class="table table-bordered" style="margin-top: 20px;">
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>User</th>
-            <th>Status</th>
-            <th>Tools</th>
-          </tr>
-        </thead>
-        <% @items.each_with_index do |item, index| %>
-          <tbody>
-            <%=render 'items/item', item: item, index: index%>
-          </tbody>      
-        <% end %>
-      </table>
+<div class="content-container">  
+  <table class="table table-bordered" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Tools</th>
+      </tr>
+    </thead>
+    <% @items.each_with_index do |item, index| %>
+      <tbody>
+        <%=render 'items/item', item: item, index: index%>
+      </tbody>      
+    <% end %>
+  </table>
+</div>
