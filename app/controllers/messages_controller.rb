@@ -10,12 +10,15 @@ class MessagesController < ApplicationController
 		else
 			message_room = MessageRoom.find(params[:message][:message_room])
 		end
-			message = message_room.messages.build(message_params)
-			message.user = current_user
-			unless message.save
+			@message = message_room.messages.build(message_params)
+			@message.user = current_user
+			unless @message.save
 				flash[:danger] = "unable to send message" 	
 			end
-			redirect_to message_room
+			respond_to do |format|
+				format.html {redirect_to message_room}
+				format.js
+			end
 	end
 private
 	def message_params

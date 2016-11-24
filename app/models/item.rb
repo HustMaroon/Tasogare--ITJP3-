@@ -15,11 +15,15 @@ class Item < ApplicationRecord
 
 	def self.get_top_newest(number)
 		# Item.where(approved: true).order('created_at DESC').limit(number)
-		Item.order('created_at DESC').limit(number)
+		Item.where(approved: true).order('created_at DESC').limit(number)
 	end
 
 	def self.get_slide_items(number)
 		Item.where(approved: true).order("RANDOM()").limit(number)
+	end
+
+	def self.get_top_ratings(number)
+		Item.where(approved: true).order('rate DESC').limit(number)
 	end
 
 	def self.search(search)

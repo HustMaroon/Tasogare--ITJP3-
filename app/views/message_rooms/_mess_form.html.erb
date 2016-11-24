@@ -1,12 +1,11 @@
-<%= form_for @message_room.messages.build, remote: true do |f| %>
+<div class="panel-footer">
+	<%= form_for @message_room.messages.build, remote: true do |f| %>
     <%= f.hidden_field :message_room, value: @message_room.id %>
-
-    <div class="panel-footer">
       <div class="input-group">
-        <%= f.text_field :content, class: "form-control", placeholder: 'Enter message' %>
+        <%= f.text_field :content, class: "form-control", placeholder: 'Enter message', id: "message-content" %>
         <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">SEND</button>
+            <%=f.submit 'SEND', class: 'btn btn-primary' %>
             </span>
       </div>
-    </div>
-<% end %>
+  <% end %>
+</div>

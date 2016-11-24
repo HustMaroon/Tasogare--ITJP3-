@@ -21,4 +21,4 @@
 .byebug_history
 .idea
 
-/public/uploads
+/public/uploads/*

@@ -4,7 +4,7 @@
       RECENT CHAT HISTORY
     </div>
 
-    <div class="messages-area">
+    <div class="messages-area" id="message-area">
       <% @messages.each do |mess| %>
           <%= render 'message', mess: mess %>
       <% end %>

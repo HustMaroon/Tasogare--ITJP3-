@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
 	end
 
 	def new
+		@item = Item.new
+		@items = Item.all
+		@items_name = @items.map(&:name)
 	end
 
 	def create
@@ -64,6 +67,15 @@ class ItemsController < ApplicationController
 
 	def filter
 		@items = Item.filter(params)
+	end
+
+	def get_item
+		@items = Item.all
+		@items_name = @items.map(&:name)
+		@item = Item.find_by(name: params[:item_name])
+		respond_to do |format|
+			format.json {render json: @item}
+		end
 	end
 
 private
