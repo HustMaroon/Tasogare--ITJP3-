@@ -34,13 +34,15 @@ class Item < ApplicationRecord
 	  end
 	end
 
+	def self.lookup(att, param)
+		param.empty? ? Item.all : where("#{att} LIKE ?", param)
+	end
+
 	def self.filter(params)
-		if params[:price] and params[:RAM] and params[:VGA] and params[:HDD] and params[:model] and params[:brand] and params[:PIN]
-			where("price < ? OR RAM LIKE ? OR VGA LIKE ? OR HDD LIKE ? OR model LIKE ? OR brand LIKE ? OR PIN LIKE ?",
-						"#{params[:price]}", "%#{params[:RAM]}%", "%#{params[:VGA]}%", "%#{params[:HDD]}%", "%#{params[:model]}%", "%#{params[:brand]}%", "%#{params[:PIN]}%");
-		else
-			nil
-		end
+		Item.lookup("name", params[:name])  & Item.lookup("brand", params[:brand]) & Item.lookup("model", params[:model]) &
+		Item.lookup("RAM", params[:RAM]) & Item.lookup("VGA", params[:VGA]) &
+		Item.lookup("HDD", params[:HDD]) & Item.lookup("price", params[:price]) & Item.lookup("screen", params[:screen]) &
+		Item.lookup("OS", params[:OS]) & Item.lookup("PIN", params[:PIN])
 	end
 
 end

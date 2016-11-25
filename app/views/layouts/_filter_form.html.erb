@@ -1,0 +1,84 @@
+  <!-- Modal -->
+<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >Advanced search</h4>
+      </div>
+      <div class="modal-body">
+        <div class="spec-form row">
+          <div class="col-md-6">
+            <%= form_tag filter_path do%>
+            <div class="field">
+              <%=label_tag :name %>
+              <%=text_field_tag 'name',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">     
+              <%= label_tag :brand %>
+              <%= text_field_tag 'brand',nil, :class => "form-field form-control" %>
+            </div>
+
+            <div class="field">     
+              <%= label_tag :model %>
+              <%= text_field_tag 'model',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= label_tag :RAM %>
+              <%= text_field_tag 'RAM', nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= label_tag :VGA %>
+              <%= text_field_tag 'VGA',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">   
+              <%= label_tag :cd %>
+              <%= select_tag 'cd', options_for_select([ "yes", "no" ]), {:class => "form-control"} %>
+            </div>
+          </div>
+    
+          <div class="col-md-6">
+            <div class="field">
+              <%= label_tag :HDD %>
+              <%= text_field_tag 'HDD',nil, :class => "form-field form-control" %>
+            </div>
+
+            <div class="field">
+              <%= label_tag :price %>
+              <%= text_field_tag :price,nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= label_tag :screen %>
+              <%= text_field_tag 'screen',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= label_tag :OS %>
+              <%= text_field_tag 'OS',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= label_tag :PIN %>
+              <%= text_field_tag 'PIN',nil, :class => "form-field form-control"%>
+            </div>
+
+            <div class="field">
+              <%= %>
+              <%= submit_tag 'search', class: 'btn btn-primary' %>
+            </div>
+
+          </div>
+        <%end%>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

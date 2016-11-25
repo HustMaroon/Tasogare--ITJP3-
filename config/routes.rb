@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :message_rooms
   resources :messages
   get 'search' => 'items#search'
-  get 'filter' => 'items#filter'
   post 'filter' => 'items#filter'
   get 'admins/users' => 'admins#users_index'
   get 'admins/items' => 'admins#items_index'
