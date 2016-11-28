@@ -1,0 +1,10 @@
+<h1>Notifications</h1>
+<%if @notifications.nil? %>
+	<p>no notifications</p>
+<%else %>
+	<ul>
+		<%@notifications.each do |noti|%>
+			<%=render 'notification', noti: noti %>
+		<%end%>
+	</ul>
+<%end%>

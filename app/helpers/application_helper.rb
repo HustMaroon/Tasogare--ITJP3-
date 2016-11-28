@@ -26,4 +26,14 @@ module ApplicationHelper
 		end 
 		return @new_messages
 	end
+
+	def notify_to_admin(item)
+		User.where(admin: true).each do |admin|
+			admin.notifications.create(kind: 1, item: item)
+		end
+	end
+
+	def notify_to_user(user,item)
+		user.notifications.create(kind: 2, item: item)
+	end
 end

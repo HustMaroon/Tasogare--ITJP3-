@@ -23,6 +23,9 @@
         <% if user_signed_in? %>
           <% if current_user.admin? %>
                 <li>
+                  <%=link_to "Notifications("+ current_user.notifications.where(read: false).count.to_s + ")", notifications_path%>
+                </li>
+                <li>
                   <%=link_to 'Message(' + check_for_messages.to_s + ')', message_rooms_path, {class: 'header-item'}%>
 
                 </li>
@@ -42,6 +45,10 @@
               </ul>
             </li>
           <%else %>
+            <li>
+              <%=link_to "Notifications("+ current_user.notifications.where(read: false).count.to_s + ")", notifications_path%>
+
+            </li>
             <li>
                 <%=link_to 'Message(' + check_for_messages.to_s + ')', current_user.message_rooms.empty? ? new_message_room_path : current_user.message_rooms.first, {class: 'header-item'}%>
 

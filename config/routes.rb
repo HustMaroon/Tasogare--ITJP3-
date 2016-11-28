@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :message_rooms
   resources :messages
+  resources :notifications
   get 'search' => 'items#search'
   post 'filter' => 'items#filter'
   get 'admins/users' => 'admins#users_index'

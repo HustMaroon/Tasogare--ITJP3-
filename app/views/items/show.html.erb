@@ -18,7 +18,7 @@
 				<img class="img-responsive" style="max-width:100%; max-height:100%" src="<%= @item.image %>" alt="">
 			<% end %>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-7">
 			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> comment(s)</div>
 			<br>
 			<div style="padding-top: 8px">
@@ -37,6 +37,16 @@
 				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.nil? ? "No info" : @item.price %>$</li>
 			</ul>
 		</div>
+
+		<%if current_user.admin %>
+			<div class="col-md-1" id=<%="approbation_#{@item.id}"%>>
+				<%if @item.approved?%>
+					<%=render 'admins/approved', item: @item%>
+				<%else%>
+					<%=render 'admins/unapproved', item: @item%>
+				<%end%>
+			</div>
+		<%end%>
 	</div>
 
 	<br>

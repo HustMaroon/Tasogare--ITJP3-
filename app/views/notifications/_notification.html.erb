@@ -1,0 +1,7 @@
+<li>
+	<%if noti.kind == 1 %>
+		<%= link_to "A new review posted, censor now", {controller: 'items', action: 'show', id: noti.item.id, query: 'notify'}, class: noti.read? ? "read" : "unread"%>
+	<%else%>
+		<%= link_to "Your review was approved", {controller: 'items', action: 'show', id: noti.item.id, query: 'notify'}, class: noti.read? ? "read" : "unread" %>
+	<%end%>
+</li>

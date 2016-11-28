@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 		if item.save
 			redirect_to item
 			flash.now[:success]= "review created"
+			notify_to_admin(item)
 		else
 			flash.now[:warning] = "failed to create review"
 			redirect_to request.referrer
@@ -37,7 +38,12 @@ class ItemsController < ApplicationController
 	end
 
 	def show
+		byebug
 		@item = Item.find(params[:id])
+		if params[:query] == "notify"
+			@item.notifications.find_by(user: current_user.id).update_attributes(read: true)
+			@item.save
+		end 
 	end
 
 	def destroy

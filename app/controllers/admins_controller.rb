@@ -13,6 +13,7 @@ class AdminsController < ApplicationController
 	def approve_item
 		@item = Item.find(params[:item][:id])
 		@item.update_attributes(approved: true)
+		notify_to_user(@item.user, @item)
 		respond_to do |format|
 			format.html{redirect_to :back}
 			format.js
