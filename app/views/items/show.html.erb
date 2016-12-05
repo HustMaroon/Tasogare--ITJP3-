@@ -17,6 +17,11 @@
 			<% else %>
 				<img class="img-responsive" style="max-width:100%; max-height:100%" src="<%= @item.image %>" alt="">
 			<% end %>
+
+				<div class="fb-share-button" data-href="https://tasogare.herokuapp.com/item/<%=@item.id%>" data-layout="button_count">
+				</div>
+
+
 		</div>
 		<div class="col-md-7">
 			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> comment(s)</div>

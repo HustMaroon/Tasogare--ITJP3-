@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		byebug
 		@item = Item.find(params[:id])
 		if params[:query] == "notify"
 			@item.notifications.find_by(user: current_user.id).update_attributes(read: true)
