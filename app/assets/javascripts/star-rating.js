@@ -546,16 +546,16 @@
 
     $.fn.ratingLocales.en = {
         starCaptions: {
-            0.5: 'Trash',
-            1: 'Crappy',
-            1.5: 'Totally not worth it',
-            2: 'Barely usable',
-            2.5: 'So so',
-            3: 'Usable',
-            3.5: 'Might be good',
-            4: 'Good',
-            4.5: 'Very good',
-            5: 'Excellent'
+            0.5: 'ごみ',
+            1: '買わないほうがいい',
+            1.5: '全然使えない',
+            2: 'なんとか',
+            2.5: 'まま',
+            3: '使える',
+            3.5: 'いいかも',
+            4: '良い',
+            4.5: 'おすすめ',
+            5: '素晴らしい'
         },
         clearButtonTitle: 'Clear',
         clearCaption: 'Not Rated'

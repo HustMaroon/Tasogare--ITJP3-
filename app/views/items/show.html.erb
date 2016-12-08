@@ -4,10 +4,21 @@
 	<% if current_user && @item.user.id == current_user.id %>
 		<div style="text-align:right; margin-top:10px">
 			<%= link_to edit_item_path(@item.id), class: "btn btn-primary" do %>
-		    <i class="glyphicon glyphicon-edit"> Edit</i>
+		    <i class="glyphicon glyphicon-edit"> 編集</i>
 			<% end %>
 		</div>
 	<% end %>
+
+  <%if current_user.admin %>
+      <div style="text-align:right; margin-top:10px">
+        <%if @item.approved?%>
+            <%=render 'admins/approved', item: @item%>
+        <%else%>
+            <%=render 'admins/unapproved', item: @item%>
+        <%end%>
+      </div>
+  <%end%>
+
 	<h1 class="article-title"><b><%= @item.name %></b></h1>
 
 	<div class="row">
@@ -18,40 +29,26 @@
 				<img class="img-responsive" style="max-width:100%; max-height:100%" src="<%= @item.image %>" alt="">
 			<% end %>
 
-				<div class="fb-share-button" data-href="https://tasogare.herokuapp.com/items/<%=@item.id%>" data-layout="button_count">
-				</div>
-
-
 		</div>
 		<div class="col-md-7">
-			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> comment(s)</div>
+			<div id="comment-top" style="cursor: pointer;" class="comment-count"><%=@item.comments.size%> コメント</div>
 			<br>
 			<div style="padding-top: 8px">
 					<input id="rating1", name="rate", value="<%=@item.rate%>">
 			</div>
-			<p class="spec-text">SPECIFICATIONS</p>
+			<p class="spec-text">スペック</p>
 			<ul>
-				<li><b class="spec-type">Brand:</b> <%= @item.brand.nil? || @item.brand.empty? ? "No info" : @item.brand %></li>
-				<li><b class="spec-type">Model:</b> <%= @item.model.nil? || @item.model.empty? ? "No info" : @item.model %></li>
-				<li><b class="spec-type">RAM:</b> <%= @item.RAM.nil? || @item.RAM.empty? ? "No info" : @item.RAM %></li>
-				<li><b class="spec-type">VGA:</b> <%= @item.VGA.nil? || @item.VGA.empty? ? "No info" : @item.VGA %></li>
-				<li><b class="spec-type">Disk:</b> <%= @item.HDD.nil? || @item.HDD.empty? ? "No info" : @item.HDD %></li>
-				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? || @item.screen.empty? ? "No info" : @item.screen %></li>
-				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "No info" : @item.OS %></li>
-				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "No info" : @item.PIN %></li>
-				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.nil? ? "No info" : @item.price %>$</li>
+				<li><b class="spec-type">Brand:</b> <%= @item.brand.nil? || @item.brand.empty? ? "情報なし" : @item.brand %></li>
+				<li><b class="spec-type">Model:</b> <%= @item.model.nil? || @item.model.empty? ? "情報なし" : @item.model %></li>
+				<li><b class="spec-type">RAM:</b> <%= @item.RAM.nil? || @item.RAM.empty? ? "情報なし" : @item.RAM %></li>
+				<li><b class="spec-type">VGA:</b> <%= @item.VGA.nil? || @item.VGA.empty? ? "情報なし" : @item.VGA %></li>
+				<li><b class="spec-type">Disk:</b> <%= @item.HDD.nil? || @item.HDD.empty? ? "情報なし" : @item.HDD %></li>
+				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? || @item.screen.empty? ? "情報なし" : @item.screen %></li>
+				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "情報なし" : @item.OS %></li>
+				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "情報なし" : @item.PIN %></li>
+				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.nil? ? "情報なし" : @item.price %>$</li>
 			</ul>
 		</div>
-
-		<%if current_user.admin %>
-			<div class="col-md-1" id=<%="approbation_#{@item.id}"%>>
-				<%if @item.approved?%>
-					<%=render 'admins/approved', item: @item%>
-				<%else%>
-					<%=render 'admins/unapproved', item: @item%>
-				<%end%>
-			</div>
-		<%end%>
 	</div>
 
 	<br>
@@ -71,24 +68,28 @@
 			<%=raw @item.detail_review %>
 	</div>
 
-<!-- Author link -->
-	<div class="comment" style="padding-left: 20px; margin-bottom: 50px">
-		<p style="border-top: 1px solid #CBCAC9; width:250px">
-		<a class="pull-left" href="#">
-	    <% if @item.user.avatar.nil? %>
-	     	<img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-	    <% else %>
-	      <img class="avatar" src="<%=@item.user.avatar%>" alt="avatar">
-	     <% end %>
-	  </a>
-	  <div class="comment-body">
-	      <div class="comment-heading">
-	          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
-	          <h5 class="time">3 reviews</h5>
-	      </div>
-	      <p><%= time_ago_in_words(@item['created_at']) %></p>
-	  </div>
-	</div>
+  <div class="fb-share-button" data-href="https://tasogare.herokuapp.com/items/<%=@item.id%>" data-layout="button_count"
+  style="text-align: right">
+  </div>
+
+  <!-- Author link -->
+  <div class="comment" style="padding-left: 20px; margin-bottom: 50px; margin-top:50px">
+    <p style="border-top: 1px solid #CBCAC9; width:250px">
+      <a class="pull-left" href="#">
+        <% if @item.user.avatar.nil? %>
+            <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+        <% else %>
+            <img class="avatar" src="<%=@item.user.avatar%>" alt="avatar">
+        <% end %>
+      </a>
+      <div class="comment-body">
+        <div class="comment-heading">
+          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
+          <h5 class="time">3 reviews</h5>
+        </div>
+    <p><%= time_ago_in_words(@item['created_at']) %></p>
+  </div>
+</div>
 
 	<!-- Comments -->
 	<h3 class="comment-title">Comments</h3>

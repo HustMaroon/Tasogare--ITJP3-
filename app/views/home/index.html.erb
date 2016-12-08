@@ -20,13 +20,17 @@
 </div>
 <!-- /.slider-->
 <!-- Page Content -->
-<div class="content-container container">
+<div class="container">
 
   <div class="row">
 
     <div class="col-lg-12">
-      <h1 class="page-header">Top Ratings</h1>
+      <h1 class="page-header">最も評価が高い</h1>
     </div>
+
+  </div>
+
+  <div class="row">
     <% @top_ratings.each do |item| %>
         <%= render 'home/top_rating_item', item: item%>
     <% end %>
@@ -35,8 +39,12 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h1 class="page-header">Top Newest</h1>
+      <h1 class="page-header">最新のレビュー</h1>
     </div>
+  </div>
+
+  <div class="row">
+
     <% @top_newest.each do |item| %>
         <%= render 'home/top_newest_item', item: item%>
     <% end %>

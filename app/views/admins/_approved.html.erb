@@ -1,5 +1,5 @@
 
 	<%=form_for(item,url: admins_item_unapprove_path, method: :post, remote: true) do |f|%>
 		<%=f.hidden_field :id, value: item.id%>
-		<%=f.submit 'unapprove',class:'btn btn-primary'%>
+		<%=f.submit '未確認にする',class:'btn btn-primary'%>
 	<%end%>
