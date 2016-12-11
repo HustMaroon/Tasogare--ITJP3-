@@ -1,24 +1,26 @@
-<div class="col-lg-3 thumb thumbnail-section" style="margin-top: 20px; height: 300px">
-  <a class="item-thumbnail" href="/items/<%=item.id%>" >
-    <div style="height: 60%; width: 100%">
-    <% if item['image'].nil? %>
-        <img class="img-responsive" style="width: 100%; height: 100%" src="http://placehold.it/400x300" alt="">
-    <% else %>
-        <img class="img-responsive" style="width: 100%; height: 100%" src="<%= item.image %>" alt="">
-    <% end %>
-    </div>
-    <div class="item-description">
-      <p class="item-name"><%= item['name'] %></p>
-      <p class="item-detail-review">
-        <%=
-          if item['detail_review'] != nil
-            raw item['detail_review'][0..20]
-          else
-            'No detail review'
-          end
-        %>
-      </p>
-      <p class="item-time"><%= time_ago_in_words(item['created_at'])%></p>
-    </div>
-  </a>
+<div class="col-lg-3">
+  <div class="thumb thumbnail-section" style="margin: 5px; height: 300px; background-color: #fff; ">
+    <a class="item-thumbnail" href="/items/<%=item.id%>" >
+      <div style="height: 60%; width: 100%">
+      <% if item['image'].nil? %>
+          <img class="img-responsive" style="width: 100%; height: 100%" src="http://placehold.it/400x300" alt="">
+      <% else %>
+          <img class="img-responsive" style="width: 100%; height: 100%" src="<%= item.image %>" alt="">
+      <% end %>
+      </div>
+      <div class="item-description" style="margin: 5px">
+        <p class="item-name"><%= item['name'][1..18] %></p>
+        <p class="item-detail-review">
+          <%=
+            if item['detail_review'] != nil
+              raw item['detail_review'][0..20]
+            else
+              'No detail review'
+            end
+          %>
+        </p>
+        <p class="item-time"><%= time_ago_in_words(item['created_at'])%></p>
+      </div>
+    </a>
+  </div>
 </div>
