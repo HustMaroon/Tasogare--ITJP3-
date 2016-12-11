@@ -14,12 +14,12 @@
           if item['detail_review'] != nil
             raw item['detail_review'][0..20]
           else
-            'No detail review'
+            '詳細情報なし'
           end
         %>
       </p>
       <p class="glyphicon glyphicon-comment"><%=item.comments.count%></p>
-      <p class="item-time"><span style="color:black">By </span><b><%=link_to item.user.name, item.user %></b>, <span style="color:black">it has been </span><%= time_ago_in_words(item['created_at'])%></p>
+      <p class="item-time"><span style="color:black">投稿者：</span><b><%=link_to item.user.name, item.user %></b>, <span style="color:black"></span><%= time_ago_in_words(item['created_at'])%>前</p>
     </div>
   </a>
 </div>

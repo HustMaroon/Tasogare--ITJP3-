@@ -1,14 +1,14 @@
 module ApplicationHelper
 	def admin_user
 		unless current_user.admin?
-			flash[:danger]= "You don't have permission to access this page"
+			flash[:danger]= "あなたはこのページにアクセス評価がありません。"
 			redirect_to root_url
 		end
 	end
 
 	def logged_in_user
     if current_user.nil?
-      flash[:danger] = "Please log in."
+      flash[:danger] = "ログインしてください。"
       redirect_to new_user_session_path
     end
   end

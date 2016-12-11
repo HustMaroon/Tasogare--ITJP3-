@@ -12,7 +12,7 @@
       <br>
       <small class="text-muted">
         <%= link_to mess.user.name.nil? ? mess.user.email : mess.user.name, mess.user %> |
-        <%= time_ago_in_words(mess.created_at) %> ago.
+        <%= time_ago_in_words(mess.created_at) %> 前.
       </small>
       <hr>
     </div>

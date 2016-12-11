@@ -3,5 +3,5 @@
 	<td><%= image_tag user.avatar.nil? ? "" : user.avatar, style: "width:40px;h eight:40px"  %></td>
 	<td><%= link_to user.name, user unless user.name.nil? %></td>
 	<td><%= user.email%></td>
-	<td><%= link_to('delete', user, method: 'delete', data: {confirm: 'you sure?'}) if user != current_user%> || <%=link_to "view details",user %></td>
+	<td><%= link_to('削除', user, method: 'delete', data: {confirm: 'you sure?'}) if user != current_user%> || <%=link_to "詳細",user %></td>
 </tr>

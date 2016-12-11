@@ -55,12 +55,12 @@
 
 	<div class="row overview-section">
 		<div class="col-md-4">
-			<h4 class="h4-title">Pros</h4>
-			<p><%= @item.pros.nil? || @item.pros.empty? ? "No pros" : @item.pros %></p>
+			<h4 class="h4-title">長所</h4>
+			<p><%= @item.pros.nil? || @item.pros.empty? ? "なし" : @item.pros %></p>
 		</div>
 		<div class="col-md-4">
-			<h4 class="h4-title">Cons</h4>
-			<p><%=@item.cons.nil? || @item.cons.empty? ? "No cons" : @item.cons %></p>
+			<h4 class="h4-title">短所</h4>
+			<p><%=@item.cons.nil? || @item.cons.empty? ? "なし" : @item.cons %></p>
 		</div>
 	</div>
 
@@ -92,7 +92,7 @@
 </div>
 
 	<!-- Comments -->
-	<h3 class="comment-title">Comments</h3>
+	<h3 class="comment-title">コメント</h3>
 	<div class="comment-section" style="padding-left:50px;padding-right:50px;padding-top:15px">
     <% if current_user %>
 		<%= render 'comments/comment_form', item: @item%>

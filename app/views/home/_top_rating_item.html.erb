@@ -14,12 +14,12 @@
           if item.detail_review != nil
             raw item.detail_review
           else
-            'No detail review'
+            '詳細情報なし'
           end
         %>
       </p> -->
       <p class="glyphicon glyphicon-comment"><%=item.comments.count%></p>
-      <p class="homepage-star"><span style="color:black">Rating: </span>
+      <p class="homepage-star"><span style="color:black">評価: </span>
         <%=
           case
             when item.rate.nil?

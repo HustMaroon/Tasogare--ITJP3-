@@ -2,7 +2,7 @@
 
 <div class="new-review-page">
   <div class="review-form-box container-fluid">
-  	<b><h3 class="new-review-title">Device specifications</h3></b>
+  	<b><h3 class="new-review-title">デバイス情報</h3></b>
 
   	<div class="spec-form row">
   		<div class="col-md-6">
@@ -34,7 +34,7 @@
 
 				<div class="field">		
 					<%= f.label :cd %>
-					<%= f.select :cd, ["yes", "no"], {}, {:class => "form-control", :id => "item-cd"} %>
+					<%= f.select :cd, ["はい", "いいえ"], {}, {:class => "form-control", :id => "item-cd"} %>
 				</div>
   		</div>
 		
@@ -75,7 +75,7 @@
   </div>
 
   <div class="review-form-box container-fluid">
-  	<b><h3 class="new-review-title">What do you think about it?</h3></b>
+  	<b><h3 class="new-review-title">これはどうですか?</h3></b>
   	<div class="spec-form row">  	
   			<input id="item-rate" name="rate">
   	</div>
@@ -83,30 +83,30 @@
   </div>	
 
   <div class="review-form-box container-fluid">  
-  	<b><h3 class="new-review-title">Some thoughts</h3></b>
+  	<b><h3 class="new-review-title">考え</h3></b>
   	<div class="spec-form row">
   		<div class="col-md-6">
-  			<b><h3 class="new-review-title">Pros</h3></b>
+  			<b><h3 class="new-review-title">長所</h3></b>
   			<%= f.text_area :pros, size: "50x7", class: 'pros-cons', id: "item-pros" %>
 	  	</div>
 	  	<div class="col-md-6">
-	  		<b><h3 class="new-review-title">Cons</h3></b>
+	  		<b><h3 class="new-review-title">短所</h3></b>
   			<%= f.text_area :cons, size: "50x7", class: 'pros-cons', id: "item-cons" %>
 	  	</div>
   	</div>
   </div>	
 
   <div class="review-form-box container-fluid">
-  	<b><h3 class="new-review-title">Detailed review</h3></b>
+  	<b><h3 class="new-review-title">詳しく評価</h3></b>
 
   	<div class="detail-content">
 	  	<div class="review-content">
 				<%=f.cktext_area :detail_review, id: "item-detail"%>
 			</div>
 			<div class="post-actions">
-	    	<%= f.submit "Post", :class => "summit-button", :id => "summit-button" %>
+	    	<%= f.submit "投稿", :class => "summit-button", :id => "summit-button" %>
 	  		<button type="button" class="summit-button" data-toggle="modal" data-target="#itemPreview" id="preview-button">
-				  Preview
+				  プレビュー
 				</button>
 	  	</div>
 	  </div>
@@ -142,7 +142,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>Preview</b></h4>
+        <h4 class="modal-title" id="myModalLabel"><b>プレビュー</b></h4>
       </div>
       <div class="modal-body">
       	<div style="padding:10px">
@@ -153,12 +153,12 @@
 							<img class="img-responsive" id="preview-img" style="max-width:100%; max-height:100%" src="#" alt="">
 						</div>
 						<div class="col-md-8">
-							<div id="comment-top" style="cursor: pointer;" class="comment-count">0 comment(s)</div>
+							<div id="comment-top" style="cursor: pointer;" class="comment-count">0 コメント(s)</div>
 							<br>
 							<div style="padding-top: 8px">
 									<input id="preview-rate", name="rate">
 							</div>
-							<p class="spec-text">SPECIFICATIONS</p>
+							<p class="spec-text">情報</p>
 							<ul>
 								<li><b class="spec-type">Brand: </b><span id="preview-brand"></span></li>
 								<li><b class="spec-type">Model: </b><span id="preview-model"></span></li>
@@ -177,11 +177,11 @@
 
 					<div class="row overview-section">
 						<div class="col-md-4">
-							<h4 class="h4-title">Pros</h4>
+							<h4 class="h4-title">長所</h4>
 							<p id="preview-cons"></p>
 						</div>
 						<div class="col-md-4">
-							<h4 class="h4-title">Cons</h4>
+							<h4 class="h4-title">短所</h4>
 							<p id="preview-pros"></p>
 						</div>
 					</div>
@@ -192,8 +192,8 @@
 				</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="preview-post-button" class="btn btn-default" data-dismiss="modal">Post</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">クロウズ</button>
+        <button type="button" id="preview-post-button" class="btn btn-default" data-dismiss="modal">投稿</button>
       </div>
     </div>
   </div>

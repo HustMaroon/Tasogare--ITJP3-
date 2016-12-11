@@ -1,9 +1,9 @@
 <%= form_for item.comments.build, class: "input-group"  do |f| %>
-	<%= f.text_area :content, id: 'comment-field', class: 'form-control', placeholder: 'Add a comment' %>
+	<%= f.text_area :content, id: 'comment-field', class: 'form-control', placeholder: 'コメント入力' %>
 
 	<%= f.hidden_field :item_id, value: item.id  %>
 
 	<div class="post-actions" style="padding:5px">
-		<%= f.submit 'Comment', class:'btn btn-primary' %>
+		<%= f.submit 'コメント', class:'btn btn-primary' %>
 	</div>
 <%end%>

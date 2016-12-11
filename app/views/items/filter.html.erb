@@ -4,7 +4,7 @@
     <h1>Result not found!</h1>
 <% else %>
     <div class="container">
-      <h1 class="page-header">Search Results</h1>
+      <h1 class="page-header">検索結果</h1>
       <% @items.each do |item| %>
           <%= render 'home/top_newest_item', item: item %>
       <% end %>

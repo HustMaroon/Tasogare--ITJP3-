@@ -1,6 +1,6 @@
 <tr id=<%="item-#{item.id}"%>>
 	<td><%= index+1%></td>
 	<td><%= item.name%></td>
-	<td><%= item.approved? ? 'approved': 'unapproved'%>	</td>
-	<td><%= link_to('delete', item, method: 'delete', data: {confirm: 'you sure?'}) if current_user.items.include?(item) %> || <%=link_to "view details", item%></td>
+	<td><%= item.approved? ? '確認': '確認しない'%>	</td>
+	<td><%= link_to('削除', item, method: 'delete', data: {confirm: 'you sure?'}) if current_user.items.include?(item) %> || <%=link_to "詳細", item%></td>
 </tr>
