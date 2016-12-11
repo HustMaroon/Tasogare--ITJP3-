@@ -17,7 +17,7 @@ module ApplicationHelper
 		if current_user.admin?
 			@new_messages = 0;
 			MessageRoom.all.each do |mr|
-				@new_messages+= 1 if mr.messages.last.user != current_user
+				@new_messages+= 1 if !mr.messages.last.nil? && mr.messages.last.user != current_user
 			end
 		else
 			@new_messages = 0;
