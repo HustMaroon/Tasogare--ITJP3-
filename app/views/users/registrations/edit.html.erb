@@ -7,21 +7,21 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :name %><br/>
+        <%= f.label :name, '名前'%><br/>
         <%= f.text_field :name, :class => "login-field form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br/>
+        <%= f.label :email, 'メール' %><br/>
         <%= f.email_field :email, autofocus: true, class: "login-field form-control" %>
       </div>
       <div class="field">
-        <%= f.label :dob, 'Date of birth'%><br/>
+        <%= f.label :dob, '生年月日'%><br/>
         <%= f.text_field :dob, data:{provide: 'datepicker'}, :class => "login-field form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :gender%><br/>
+        <%= f.label :gender, '性別'%><br/>
         <%= f.select(:gender, ['男','女', "同性愛者", "レス"], {}, {:class => "form-control"})%>
       </div>
 
@@ -30,7 +30,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(
+        <%= f.label :password, 'パスワード' %> <i>(
           <% if @minimum_password_length %> <em><%= @minimum_password_length %> characters minimum</em>
           <% end %>, leave blank if you don't want to change it)</i><br/>
         <%= f.password_field :password, autocomplete: "off", class: "login-field form-control" %>
@@ -38,17 +38,17 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br/>
+        <%= f.label :password_confirmation, '再パスワード入力' %><br/>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "login-field form-control" %>
       </div>
 
       <div class="field">
-        <%=f.label :avatar %>
+        <%=f.label :avatar, 'アバター' %>
         <%=f.file_field :avatar %>
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
+        <%= f.label :current_password, '現在のパスワード' %> <i>(we need your current password to confirm your changes)</i><br/>
         <%= f.password_field :current_password, autocomplete: "off", class: "login-field form-control" %>
       </div>
 
