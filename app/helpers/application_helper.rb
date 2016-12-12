@@ -36,4 +36,8 @@ module ApplicationHelper
 	def notify_to_user(user,item)
 		user.notifications.create(kind: 2, item: item)
 	end
+
+	def get_notifications
+		current_user.notifications.where(read: false)[0..9]
+	end
 end

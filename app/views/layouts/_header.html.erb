@@ -23,7 +23,21 @@
         <% if user_signed_in? %>
           <% if current_user.admin? %>
                 <li>
-                  <%=link_to "お知らせ("+ current_user.notifications.where(read: false).count.to_s + ")", notifications_path, class: "header-item"%>
+                  <span class="header-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    お知らせ(<%=current_user.notifications.where(read: false).count.to_s%>)<span class="caret"></span>
+                  </span>
+                  <ul class="dropdown-menu">
+                    <%notifications = get_notifications%>
+                    <%if notifications.empty?%>
+                      <li>新しいお知らせがない</li>
+                    <%else%>
+                      <%notifications.each do |nt|%>
+                          <li><%=link_to "ユーザー#{nt.item.user.name}は新しいレビューを投稿しました。", {controller: 'items', action: 'show', id: nt.item.id, query: 'notify'}%></li>
+                      <%end%>
+                    <%end%>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "すべて見る", notifications_path%></li>
+                  </ul>
                 </li>
                 <li>
                   <%=link_to 'メッセージ(' + check_for_messages.to_s + ')', message_rooms_path, {class: 'header-item'}%>
@@ -47,7 +61,21 @@
           <%else %>
                 <li><%= link_to "詳細検索",filter_path, {data:{toggle: "modal", target: "#filterModal"}, class: "header-item"} %></li>
             <li>
-              <%=link_to "お知らせ("+ current_user.notifications.where(read: false).count.to_s + ")", notifications_path, {class: "header-item"}%>
+              <span class="header-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                お知らせ(<%=current_user.notifications.where(read: false).count.to_s%>)<span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu">
+                <%notifications = get_notifications%>
+                <%if notifications.empty?%>
+                  <li>新しいお知らせがない</li>
+                <%else%>
+                  <%notifications.each do |nt|%>
+                      <li><%=link_to "レビュー#{nt.item.name}は確認された。", {controller: 'items', action: 'show', id: nt.item.id, query: 'notify'}%></li>
+                  <%end%>
+                <%end%>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "すべて見る", notifications_path%></li>
+              </ul>
             </li>
             <li><%= link_to "レビューを書く", new_item_path, {class: "header-item"} %></li>
             <li class="dropdown">

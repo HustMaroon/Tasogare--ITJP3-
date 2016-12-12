@@ -10,7 +10,7 @@
 	<% end %>
 
   <%if !current_user.nil? && current_user.admin %>
-      <div style="text-align:right; margin-top:10px">
+      <div id="approbation_<%=@item.id%>" style="text-align:right; margin-top:10px">
         <%if @item.approved?%>
             <%=render 'admins/approved', item: @item%>
         <%else%>
