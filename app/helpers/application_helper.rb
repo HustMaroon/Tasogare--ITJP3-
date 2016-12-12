@@ -40,4 +40,13 @@ module ApplicationHelper
 	def get_notifications
 		current_user.notifications.where(read: false)[0..9]
 	end
+
+	def full_title(page_title = '')
+    base_title = "黄昏"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
 end

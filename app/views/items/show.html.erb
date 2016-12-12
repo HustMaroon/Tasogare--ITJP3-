@@ -1,4 +1,4 @@
-
+<% provide(:title, @item.name) %>
 <div class="article-section container">
 
 	<% if current_user && @item.user.id == current_user.id %>
