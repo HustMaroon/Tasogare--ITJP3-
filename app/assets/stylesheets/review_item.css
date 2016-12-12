@@ -93,7 +93,8 @@
     background: #ce0308;
 }
 .article-title {
-  margin-bottom: 5px;
+  padding-top: 20px;
+    padding-bottom: 20px;
 }
 .h4-title {
   color: #E20309;

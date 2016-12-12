@@ -19,6 +19,23 @@
       </div>
   <%end%>
 
+  <!-- Author link -->
+  <div class="comment" style="padding-left: 20px; margin-bottom: 50px; margin-top:50px">
+    <p style="width:250px">
+      <a class="pull-left" href="#" style="margin-top:0">
+        <% if @item.user.avatar.blank? %>
+            <img class="avatar2" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+        <% else %>
+            <img class="avatar2" src="<%=@item.user.avatar%>" alt="avatar">
+        <% end %>
+      </a>
+      <div class="comment-body" style="margin-top: 10px; padding-left: 20px;">
+        <div class="comment-heading">
+          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
+        </div>
+    <p><%= @item['created_at']%>に書いた</p>
+  </div>
+
 	<h1 class="article-title"><b><%= @item.name %></b></h1>
 
 	<div class="row">
@@ -37,17 +54,25 @@
 					<input id="rating1", name="rate", value="<%=@item.rate%>">
 			</div>
 			<p class="spec-text">スペック</p>
-			<ul>
-				<li><b class="spec-type">Brand:</b> <%= @item.brand.nil? || @item.brand.empty? ? "情報なし" : @item.brand %></li>
-				<li><b class="spec-type">Model:</b> <%= @item.model.nil? || @item.model.empty? ? "情報なし" : @item.model %></li>
-				<li><b class="spec-type">RAM:</b> <%= @item.RAM.nil? || @item.RAM.empty? ? "情報なし" : @item.RAM %></li>
-				<li><b class="spec-type">VGA:</b> <%= @item.VGA.nil? || @item.VGA.empty? ? "情報なし" : @item.VGA %></li>
-				<li><b class="spec-type">Disk:</b> <%= @item.HDD.nil? || @item.HDD.empty? ? "情報なし" : @item.HDD %></li>
-				<li><b class="spec-type">Screen:</b> <%= @item.screen.nil? || @item.screen.empty? ? "情報なし" : @item.screen %></li>
-				<li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "情報なし" : @item.OS %></li>
-				<li><b class="spec-type">Battery:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "情報なし" : @item.PIN %></li>
-				<li><b class="spec-type">Price:</b> <%= @item.price.nil? || @item.price.nil? ? "情報なし" : @item.price %>$</li>
-			</ul>
+			<div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li><b class="spec-type">ブランド:</b> <%= @item.brand.nil? || @item.brand.empty? ? "情報なし" : @item.brand %></li>
+            <li><b class="spec-type">モデル:</b> <%= @item.model.nil? || @item.model.empty? ? "情報なし" : @item.model %></li>
+            <li><b class="spec-type">メモリー:</b> <%= @item.RAM.nil? || @item.RAM.empty? ? "情報なし" : @item.RAM %></li>
+            <li><b class="spec-type">グラフィック:</b> <%= @item.VGA.nil? || @item.VGA.empty? ? "情報なし" : @item.VGA %></li>
+            <li><b class="spec-type">ストレージ:</b> <%= @item.HDD.nil? || @item.HDD.empty? ? "情報なし" : @item.HDD %></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li><b class="spec-type">画面:</b> <%= @item.screen.nil? || @item.screen.empty? ? "情報なし" : @item.screen %></li>
+            <li><b class="spec-type">OS:</b> <%= @item.OS.nil? || @item.OS.empty? ? "情報なし" : @item.OS %></li>
+            <li><b class="spec-type">バッテリー:</b> <%= @item.PIN.nil? || @item.PIN.empty? ? "情報なし" : @item.PIN %></li>
+            <li><b class="spec-type">価額:</b> <%= @item.price.nil? || @item.price.nil? ? "情報なし" : @item.price %>$</li>
+          </ul>
+        </div>
+      </div>
 		</div>
 	</div>
 
@@ -68,27 +93,10 @@
 			<%=raw @item.detail_review %>
 	</div>
 
-  <div class="fb-share-button" data-href="https://tasogare.herokuapp.com/items/<%=@item.id%>" data-layout="button_count"
-  style="text-align: right">
+  <div class="fb-share-button" data-href="https://tasogare.herokuapp.com/items/<%=@item.id%>" data-layout="button_count" data-size="large">
   </div>
 
-  <!-- Author link -->
-  <div class="comment" style="padding-left: 20px; margin-bottom: 50px; margin-top:50px">
-    <p style="border-top: 1px solid #CBCAC9; width:250px">
-      <a class="pull-left" href="#">
-        <% if @item.user.avatar.nil? %>
-            <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-        <% else %>
-            <img class="avatar" src="<%=@item.user.avatar%>" alt="avatar">
-        <% end %>
-      </a>
-      <div class="comment-body">
-        <div class="comment-heading">
-          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
-          <h5 class="time">3 reviews</h5>
-        </div>
-    <p><%= time_ago_in_words(@item['created_at']) %></p>
-  </div>
+
 </div>
 
 	<!-- Comments -->

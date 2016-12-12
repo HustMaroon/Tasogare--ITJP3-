@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     user = User.new(user_params)
+    user.name = user.name.blank? ? "匿名ユーザー" : user.name
     if user.save
       flash.now[:succes]="successfully created your account"
       sign_in user
