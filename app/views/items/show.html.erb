@@ -1,4 +1,4 @@
-
+<% provide(:title, @item.name) %>
 <div class="article-section container">
 
 	<% if current_user && @item.user.id == current_user.id %>
@@ -31,7 +31,7 @@
       </a>
       <div class="comment-body" style="margin-top: 10px; padding-left: 20px;">
         <div class="comment-heading">
-          <h4 class="user"><%=link_to @item.user.name, @item.user %></h4>
+          <h4 class="user"><%=link_to @item.user.name.blank? ? 'Anonymous' : @item.user.name, @item.user %></h4>
         </div>
     <p><%= @item['created_at']%>に書いた</p>
   </div>
